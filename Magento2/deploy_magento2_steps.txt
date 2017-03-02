@@ -1,0 +1,9 @@
+bin/magento setup:upgrade
+
+bin/magento indexer:reindex
+
+bin/magento deploy:mode:set production -s
+
+bin/magento setup:di:compile (Here was the secret, to run the di:compile after production)
+
+bin/magento setup:static-content:deploy pt_BR en_US

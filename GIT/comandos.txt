@@ -1,0 +1,27 @@
+primeiro configurar o git user
+
+git config --global user.name "Fernando Fauth"
+git config --global user.email "fernandohmfauth@gmail.com"
+
+git config --global color.ui true
+
+git status - untracked files
+
+git add nome_do_arquivo - pronto para ser comitado
+
+git commit -m "descricao do commit"
+
+
+git add -u atualizar tudo
+
+
+git fetch --all
+git pull origin master
+git reset --hard origin/master
+git pull origin master
+git log
+git status
+git add -u *
+git status
+git add *
+git status

@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<!-- saved from url=(0060)http://michaelchelen.net/81fa/install-jekyll-2-ubuntu-14-04/ -->
+<html class=" js no-touch cssanimations csstransitions" lang="en"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Install Jekyll 2 on Ubuntu 14.04 – michaelchelen.net</title>
+<meta name="description" content="Jekyll 2 was recently released and can be installed on Ubuntu 14.04 using apt-get and gem install.">
+<meta name="keywords" content="Ubuntu, Jekyll, Ruby, Linux">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="//michaelchelen.net/images/">
+<meta name="twitter:title" content="Install Jekyll 2 on Ubuntu 14.04">
+<meta name="twitter:description" content="Jekyll 2 was recently released and can be installed on Ubuntu 14.04 using apt-get and gem install.">
+<meta name="twitter:creator" content="@mikechelen">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Install Jekyll 2 on Ubuntu 14.04">
+<meta property="og:description" content="Jekyll 2 was recently released and can be installed on Ubuntu 14.04 using apt-get and gem install.">
+<meta property="og:url" content="//michaelchelen.net/81fa/install-jekyll-2-ubuntu-14-04">
+<meta property="og:site_name" content="michaelchelen.net">
+
+
+
+
+
+<link rel="canonical" href="http://michaelchelen.net/81fa/install-jekyll-2-ubuntu-14-04">
+<link href="http://michaelchelen.net/feed.xml" type="application/atom+xml" rel="alternate" title="michaelchelen.net Feed">
+<link rel="author" href="https://google.com/+MichaelChelen?rel=author">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="./Install Jekyll 2 on Ubuntu 14.04 – michaelchelen.net_files/main.min.css">
+<!-- Webfonts -->
+<link href="./Install Jekyll 2 on Ubuntu 14.04 – michaelchelen.net_files/css" rel="stylesheet" type="text/css">
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<div class="fit-vids-style">­<style>               .fluid-width-video-wrapper {                 width: 100%;                              position: relative;                       padding: 0;                            }                                                                                   .fluid-width-video-wrapper iframe,        .fluid-width-video-wrapper object,        .fluid-width-video-wrapper embed {           position: absolute;                       top: 0;                                   left: 0;                                  width: 100%;                              height: 100%;                          }                                       </style></div><script src="./Install Jekyll 2 on Ubuntu 14.04 – michaelchelen.net_files/modernizr-2.6.2.custom.min.js"></script>
+
+
+<!-- Icons -->
+
+<!-- windows -->
+	<meta name="msapplication-square70x70logo" content="//michaelchelen.net/images/windows-tile-70x70.png">
+	<meta name="msapplication-square150x150logo" content="//michaelchelen.net/images/windows-tile-150x150.png">
+	<meta name="msapplication-square310x310logo" content="//michaelchelen.net/images/windows-tile-310x310.png">
+	<meta name="msapplication-TileImage" content="//michaelchelen.net/images/windows-tile-144x144.png">
+	<meta name="msapplication-TileColor" content="#464646">
+
+
+
+<!-- 16x16 -->
+<link rel="shortcut icon" href="http://michaelchelen.net/favicon.ico">
+<!-- 32x3x2 -->
+<link rel="icon" type="image/png" sizes="64x64" href="http://michaelchelen.net/favicon.png">
+
+<!-- apple -->
+	<link rel="apple-touch-icon-precomposed" sizes="152x152" href="http://michaelchelen.net/images/apple-touch-icon-152x152-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="120x120" href="http://michaelchelen.net/images/apple-touch-icon-120x120-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="76x76" href="http://michaelchelen.net/images/apple-touch-icon-76x76-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="60x60" href="http://michaelchelen.net/images/apple-touch-icon-60x60-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://michaelchelen.net/images/apple-touch-icon-144x144-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://michaelchelen.net/images/apple-touch-icon-114x114-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://michaelchelen.net/images/apple-touch-icon-72x72-precomposed.png">
+	<link rel="apple-touch-icon" sizes="57x57" href="http://michaelchelen.net/images/apple-touch-icon.png">
+
+
+
+
+
+
+
+<script type="text/javascript" async="" src="./Install Jekyll 2 on Ubuntu 14.04 – michaelchelen.net_files/embed.js"></script><script async="" type="text/javascript" src="./Install Jekyll 2 on Ubuntu 14.04 – michaelchelen.net_files/count.js"></script><meta name="chromesniffer" id="chromesniffer_meta" content="{&quot;Disqus&quot;:-1,&quot;HumansTxt&quot;:-1,&quot;GoogleFontApi&quot;:-1,&quot;jQuery&quot;:&quot;1.9.1&quot;,&quot;Modernizr&quot;:&quot;2.6.2&quot;}"><script type="text/javascript" src="chrome-extension://homgcnaoacgigpkkljjjekpignblkeae/detector.js"></script><style id="style-1-cropbar-clipper">/* Copyright 2014 Evernote Corporation. All rights reserved. */
+.en-markup-crop-options {
+    top: 18px !important;
+    left: 50% !important;
+    margin-left: -100px !important;
+    width: 200px !important;
+    border: 2px rgba(255,255,255,.38) solid !important;
+    border-radius: 4px !important;
+}
+
+.en-markup-crop-options div div:first-of-type {
+    margin-left: 0px !important;
+}
+</style><script src="./Install Jekyll 2 on Ubuntu 14.04 – michaelchelen.net_files/alfie.f51946af45e0b561c60f768335c9eb79.js" async="" charset="UTF-8"></script></head>
+
+<body id="post">
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+<nav id="dl-menu" class="dl-menuwrapper" role="navigation">
+	<button class="dl-trigger">Open Menu</button>
+	<ul class="dl-menu">
+		<li><a href="http://michaelchelen.net/">Home</a></li>
+		<li>
+			<a href="http://michaelchelen.net/81fa/install-jekyll-2-ubuntu-14-04/#">About</a>
+			<ul class="dl-submenu"><li class="dl-back"><a href="http://michaelchelen.net/81fa/install-jekyll-2-ubuntu-14-04/#">back</a></li>
+				<li>
+					<img src="./Install Jekyll 2 on Ubuntu 14.04 – michaelchelen.net_files/avatar.jpg" alt="Michael Chelen photo" class="author-photo">
+					<h4>Michael Chelen</h4>
+					<p>A person</p>
+				</li>
+				<li><a href="http://michaelchelen.net/about/">Learn More</a></li>
+				<li>
+					<a href="mailto:michael.chelen@gmail.com"><i class="fa fa-envelope"></i> Email</a>
+				</li>
+				<li>
+					<a href="http://twitter.com/mikechelen"><i class="fa fa-twitter"></i> Twitter</a>
+				</li>
+				
+				<li>
+					<a href="https://google.com/+MichaelChelen"><i class="fa fa-google-plus"></i> Google+</a>
+				</li>
+				
+				<li>
+					<a href="http://github.com/mchelen"><i class="fa fa-github"></i> GitHub</a>
+				</li>
+				
+				
+				
+				
+			</ul><!-- /.dl-submenu -->
+		</li>
+		<li>
+			<a href="http://michaelchelen.net/81fa/install-jekyll-2-ubuntu-14-04/#">Posts</a>
+			<ul class="dl-submenu"><li class="dl-back"><a href="http://michaelchelen.net/81fa/install-jekyll-2-ubuntu-14-04/#">back</a></li>
+				<li><a href="http://michaelchelen.net/posts/">All Posts</a></li>
+				<li><a href="http://michaelchelen.net/tags/">All Tags</a></li>
+			</ul>
+		</li>
+		<li><a href="https://github.com/mchelen/michaelchelen.net" target="_blank">Fork</a></li>
+	</ul><!-- /.dl-menu -->
+</nav><!-- /.dl-menuwrapper -->
+
+
+
+
+<div id="main" role="main">
+  <article class="hentry">
+    <header class="header-title">
+      <div class="header-title-wrap">
+        
+          <h1 class="entry-title"><a href="http://michaelchelen.net/81fa/install-jekyll-2-ubuntu-14-04" rel="bookmark" title="Install Jekyll 2 on Ubuntu 14.04">Install Jekyll 2 on Ubuntu 14.04</a></h1>
+        
+        <h2>May 14, 2014</h2>
+        
+      </div><!-- /.header-title-wrap -->
+    </header>
+    <div class="entry-content">
+      <p><img src="./Install Jekyll 2 on Ubuntu 14.04 – michaelchelen.net_files/logo-2x.png" alt="">
+Jekyll 2 was <a href="http://jekyllrb.com/news/2014/05/06/jekyll-turns-2-0-0/">recently released</a> and can be installed on Ubuntu 14.04 or 14.10 using <code>apt-get</code> and <code>gem install</code>. Additional features such as Rdiscount can be added with the same method. Although there are packages for Jekyll in the <a href="http://packages.ubuntu.com/search?keywords=jekyll&amp;searchon=names&amp;suite=all&amp;section=all">Ubuntu repository</a>, the packages are for older versions of Jekyll.</p>
+
+<p>Jekyll is a static site generator with a templating system that can be adapted for many types of websites, including blogs. It can be run on a server, or run locally and the generated files uploaded to a server. It is the default software used by Github Pages.</p>
+
+<p><em>Tested with Jekyll 2.5.2 on Ubuntu 14.04 and 14.10</em></p>
+
+<!--more-->
+
+<h2 id="install-prerequisites">Install Prerequisites</h2>
+
+<p>Install ruby, the ruby development libraries, and the make command.</p>
+
+<pre><code>sudo apt-get install ruby ruby-dev make gcc nodejs
+</code></pre>
+
+<h3 id="javascript-workaround">Javascript Workaround</h3>
+<p>Installation of <code>nodejs</code> is required because of an <a href="https://github.com/jekyll/jekyll/issues/2327">issue</a> where Jekyll requires a JavaScript runtime even if it will not be used.</p>
+
+<h2 id="install-jekyll">Install Jekyll</h2>
+<p>Install the Jekyll gem system wide. For speed, we are excluding the extended documentation. To include all documentation, omit the <code>--no-rdoc --no-ri</code> switches.</p>
+
+<pre><code>sudo gem install jekyll --no-rdoc --no-ri
+</code></pre>
+
+<h2 id="start-jekyll">Start Jekyll</h2>
+
+<p>Check that Jekyll has been successfully installed.</p>
+
+<pre><code>jekyll -v
+</code></pre>
+
+<p>The current version is <code>jekyll 2.5.2</code>.</p>
+
+<h2 id="recommended">Recommended</h2>
+<p>Additional gems can add features to Jekyll, such the <a href="https://github.com/github/pages-gem"><code>github-pages</code></a> gem which bundles together several gems supported by Github Pages.</p>
+
+<pre><code>sudo gem install github-pages --no-rdoc --no-ri
+</code></pre>
+
+<p>Although not required, <code>git</code> is often used to manage the files of a Jekyll website.</p>
+
+<pre><code>sudo apt-get install git
+</code></pre>
+
+<h3 id="get-website-content">Get Website Content</h3>
+<p>Now that Jekyll is installed, we need content for it to serve. We can either use a current website, or set up a new site from scratch.</p>
+
+<h4 id="use-existing-site">Use Existing Site</h4>
+<p>Use <code>git</code> to clone an existing Jekyll website, such as this one!</p>
+
+<pre><code>git clone https://github.com/mchelen/michaelchelen.net.git
+cd michaelchelen.net
+</code></pre>
+
+<p>Please note: the <code>--config</code> option must be specified to run <code>michaelchelen.net</code> locally. See <em>Extra Options</em> section below.</p>
+
+<h4 id="create-new-site">Create New Site</h4>
+<p>For a new Jekyll site, use the <code>new</code> command to create a directory structure and config files.</p>
+
+<pre><code>jekyll new my-awesome-site
+cd my-awesome-site 
+</code></pre>
+
+<h3 id="start-jekyll-1">Start Jekyll</h3>
+<p>Now that the basic config and layout are available, start Jekyll to generate the website HTML and start a local server.</p>
+
+<pre><code>jekyll serve
+</code></pre>
+
+<p>Then visit <a href="http://localhost:4000/">http://localhost:4000</a> in a web browser.</p>
+
+<blockquote>
+  <p>Jekyll is now successfully runnning!</p>
+</blockquote>
+
+<h3 id="extra-options">Extra Options</h3>
+<p>Jekyll can watch the directory for changes and regenerate the website when files are modified.</p>
+
+<pre><code>jekyll serve -w
+</code></pre>
+
+<p>The default port <code>4000</code> can be changed, for example when running multiple Jekyll instances.</p>
+
+<pre><code>jekyll serve --port 4001
+</code></pre>
+
+<p>Then visit <a href="http://localhost:4001/">http://localhost:4001</a> in a web browser.</p>
+
+<p>The <code>_config.yml</code> can also be specified. This is useful if you need different configs for a public site or when running locally. For example, when running <code>michaelchelen.net</code> locally use:</p>
+
+<pre><code>jekyll serve --config _config-local.yml
+</code></pre>
+
+<p>The website can also be generated without starting a local server. The files are placed into the <code>_site</code> directory and can be uploaded to a web server.</p>
+
+<pre><code>jekyll build
+</code></pre>
+
+<h3 id="updating-jekyll">Updating Jekyll</h3>
+<p>Jekyll can be updated similar to installation, by using the <code>gem update</code> command.</p>
+
+<pre><code>sudo gem update jekyll --no-rdoc --no-ri
+</code></pre>
+
+<p>The same command can be used to update additional gems.</p>
+
+<pre><code>sudo gem update github-pages --no-rdoc --no-ri
+</code></pre>
+
+<h2 id="references">References</h2>
+<ul>
+  <li><a href="http://stackoverflow.com/a/8113213/2043808">http://stackoverflow.com/a/8113213/2043808</a></li>
+  <li><a href="https://github.com/jekyll/jekyll/pull/2362">https://github.com/jekyll/jekyll/pull/2362</a></li>
+  <li><a href="http://ubuntuforums.org/showthread.php?t=1464768&amp;p=9188769#post9188769">http://ubuntuforums.org/showthread.php?t=1464768&amp;p=9188769#post9188769</a></li>
+  <li><a href="http://jekyllrb.com/docs/home/">http://jekyllrb.com/docs/home/</a></li>
+</ul>
+
+      <footer class="entry-meta">
+        <span class="entry-tags"><a href="http://michaelchelen.net/tags/#Ubuntu" title="Pages tagged Ubuntu" class="tag">Ubuntu</a><a href="http://michaelchelen.net/tags/#Jekyll" title="Pages tagged Jekyll" class="tag">Jekyll</a><a href="http://michaelchelen.net/tags/#Ruby" title="Pages tagged Ruby" class="tag">Ruby</a><a href="http://michaelchelen.net/tags/#Linux" title="Pages tagged Linux" class="tag">Linux</a></span>
+        <span><a href="http://michaelchelen.net/81fa/install-jekyll-2-ubuntu-14-04" rel="bookmark" title="Install Jekyll 2 on Ubuntu 14.04">Install Jekyll 2 on Ubuntu 14.04</a> was published on <span class="entry-date date published updated"><time datetime="2014-05-14T00:00:00-04:00">May 14, 2014</time></span></span>
+        
+        <span class="author vcard"><span class="fn"><a href="http://michaelchelen.net/about/" title="About Michael Chelen">Michael Chelen</a></span></span>
+        <div class="social-share">
+          <ul class="socialcount socialcount-small inline-list">
+            <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=//michaelchelen.net/81fa/install-jekyll-2-ubuntu-14-04" title="Share on Facebook"><span class="count"><i class="fa fa-facebook-square"></i> Like</span></a></li>
+            <li class="twitter"><a href="https://twitter.com/intent/tweet?text=//michaelchelen.net/81fa/install-jekyll-2-ubuntu-14-04" title="Share on Twitter"><span class="count"><i class="fa fa-twitter-square"></i> Tweet</span></a></li>
+            <li class="googleplus"><a href="https://plus.google.com/share?url=//michaelchelen.net/81fa/install-jekyll-2-ubuntu-14-04" title="Share on Google Plus"><span class="count"><i class="fa fa-google-plus-square"></i> +1</span></a></li>
+          </ul>
+        </div><!-- /.social-share -->
+      </footer>
+    </div><!-- /.entry-content -->
+    <section id="disqus_thread"><iframe id="dsq-app2" name="dsq-app2" allowtransparency="true" frameborder="0" scrolling="no" tabindex="0" title="Disqus" width="100%" src="./Install Jekyll 2 on Ubuntu 14.04 – michaelchelen.net_files/saved_resource.html" style="width: 1px !important; min-width: 100% !important; border: none !important; overflow: hidden !important; height: 1426px !important;" horizontalscrolling="no" verticalscrolling="no"></iframe></section><!-- /#disqus_thread -->
+    
+    <div class="read-more">
+      
+        <div class="read-more-header">
+          <a href="http://michaelchelen.net/9c42/install-jekyll-with-ruby-version-manager-on-ubuntu-11.10" class="read-more-btn">Read More</a>
+        </div><!-- /.read-more-header -->
+        <div class="read-more-content">
+          <h3><a href="http://michaelchelen.net/9c42/install-jekyll-with-ruby-version-manager-on-ubuntu-11.10" title="Install Jekyll with Ruby Version Manager on Ubuntu 11.10">Install Jekyll with Ruby Version Manager on Ubuntu 11.10</a></h3>
+          <p>Jekyll generates a complete website such as a blog from plain text files. The generated files can be served by any standard webserver. Ma...… <a href="http://michaelchelen.net/9c42/install-jekyll-with-ruby-version-manager-on-ubuntu-11.10">Continue reading</a></p>
+        </div><!-- /.read-more-content -->
+      
+      <div class="read-more-list">
+        
+          <div class="list-item">
+            <h4><a href="http://michaelchelen.net/00cc/blogging-with-git-using-jekyll-on-ubuntu-11-04" title="Blogging with Git using Jekyll on Ubuntu 11.04">Blogging with Git using Jekyll on Ubuntu 11.04</a></h4>
+            <span>Published on June 07, 2011</span>
+          </div><!-- /.list-item -->
+        
+          <div class="list-item">
+            <h4><a href="http://michaelchelen.net/0ffa/git-wiki-gollum-smeagol" title="Git Wiki with Gollum and Smeagol">Git Wiki with Gollum and Smeagol</a></h4>
+            <span>Published on June 06, 2011</span>
+          </div><!-- /.list-item -->
+        
+      </div><!-- /.read-more-list -->
+      
+    </div><!-- /.read-more -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    <span>© 2014 Michael Chelen. Powered by <a href="http://jekyllrb.com/">Jekyll</a> using the <a href="http://mademistakes.com/hpstr/">HPSTR Theme</a>. <a href="http://michaelchelen.net/terms/">Privacy and Disclosure Policies</a>.</span>
+
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script src="./Install Jekyll 2 on Ubuntu 14.04 – michaelchelen.net_files/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="//michaelchelen.net/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="./Install Jekyll 2 on Ubuntu 14.04 – michaelchelen.net_files/scripts.min.js"></script>
+
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'michaelchelennet'; // required: replace example with your forum shortname
+
+    
+      var disqus_identifier = '7c60f526-81fa-4b5c-8cb1-29e9418a93d8';
+    
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+<noscript>Please enable JavaScript to view the &lt;a href="http://disqus.com/?ref_noscript"&gt;comments powered by Disqus.&lt;/a&gt;</noscript>
+
+
+	        
+
+
+
+<div id="shadowMeasureIt"></div><div id="divCoordMeasureIt"></div><div id="divRectangleMeasureIt"><div id="divRectangleBGMeasureIt"></div></div></body><autoscroll></autoscroll></html>

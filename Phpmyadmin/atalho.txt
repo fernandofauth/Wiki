@@ -1,0 +1,1 @@
+sudo ln -s /usr/share/phpmyadmin /usr/share/nginx/html

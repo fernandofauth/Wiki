@@ -1,0 +1,20 @@
+export PATH=$PATH:$(pwd)/bin
+magento setup:upgrade
+
+
+magento setup:cache:{enable|disable|clean|flush|status}
+
+magento setup:indexer:{status|show-mode|set-mode|reindex|info}
+
+
+chmod -R 777 /usr/share/nginx/html/magento2/var
+
+bin/magento module:disable Ves_Brand
+
+bin/magento module:status
+
+bin/magento deploy:mode:set developer
+
+magento cache:status 
+
+magento setup:di:compile

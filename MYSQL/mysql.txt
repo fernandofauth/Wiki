@@ -1,0 +1,8 @@
+login
+mysql -h 192.168.0.60 -P 3306 -u root -p
+
+export sql
+mysqldump -u [uname] -p db_name > db_backup.sql
+
+mysqldump -h IPHERE -P 3306 -u dadmin -p DATABASENAME > /usr/share/nginx/html/db_backup.sql
+

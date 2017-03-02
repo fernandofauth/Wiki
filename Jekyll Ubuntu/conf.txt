@@ -1,0 +1,10 @@
+server {
+    listen 80;
+
+    server_name 52.205.109.254;
+
+    location / {
+    root   /usr/share/nginx/html/fernandofauth/_site;
+    index index.html;
+    }
+}

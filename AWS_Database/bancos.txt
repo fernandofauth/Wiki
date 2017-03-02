@@ -1,0 +1,15 @@
+Redis
+Memcache
+ou
+Elasticcache
+
+SQL - RDS
+
+Elasricsearch
+Cloudsearch
+
+O ideal é usar a ferramenta adequada para cada tipo de dado.
+
+http://prntscr.com/dd6f6c
+
+https://aws.amazon.com/pt/machine-learning/

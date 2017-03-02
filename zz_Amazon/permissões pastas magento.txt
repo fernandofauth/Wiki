@@ -1,0 +1,10 @@
+Here's how to do this via your SSH client. Log in to your SSH account and then execute the following commands:
+
+cd to magento install
+find . -type d -exec chmod 777 {} \;
+chmod 666 downloader/config.ini
+You should now be able to access the Magento Connect Manager. When you have finished the installation/upgrade, you should reset the permissions by executing the following SSH commands:
+
+find . -type d -exec chmod 755 {} \;
+find . -type f -exec chmod 644 {} \;
+chmod o+w var media app/etc/use_cache.ser

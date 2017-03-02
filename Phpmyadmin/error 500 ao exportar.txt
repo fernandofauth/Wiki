@@ -1,0 +1,1 @@
+provavelmente terá que instalar o php5-fpm e configurar o .sock no .conf do phpmyadmin

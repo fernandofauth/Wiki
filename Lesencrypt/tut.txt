@@ -1,0 +1,11 @@
+sudo apt-get install letsencrypt
+
+sudo git clone https://github.com/letsencrypt/letsencrypt /opt/letsencrypt
+
+sudo service nginx stop
+
+to install certificate you need configure port 443 and ECHO request on Security group
+
+cd /opt/letsencrypt
+
+sudo -H ./letsencrypt-auto certonly --standalone

@@ -1,0 +1,35 @@
+primeiro você tem que dar as permições necessárias no painel IAM
+
+https://console.aws.amazon.com/iam/home
+
+Vá em USERS selecione o usuário desejado.
+
+Em Security Credentials crie sua chave de acesso.
+Salve-as em um local seguro, pois vai precisar delas para sincronizar os acesso com a AWS.
+
+Foi isso, vá na aba Permicions e adicione as POCICIES que deseja.
+Agora basta instalar o CLI na sua APP linux.
+
+apt-get install awscli
+
+configurar elas aws configure
+
+Colocar suas credenciais de acesso, criadas anteriormente.
+
+Para testar o acesso corretamente basta digitar:
+
+aws ec2 describe-instances ou
+aws s3 ls
+
+pronto!
+
+
+Dicas:
+
+copiar arquivos de um bucket para outro:
+
+aws s3 cp s3://integralmedicasite/blog_fotos/ s3://integralteam/ --recursive
+
+listar arquivos dentro de um bucket:
+
+aws s3 ls s3://integralmedicasite/blog_fotos/

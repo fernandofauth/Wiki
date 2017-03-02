@@ -1,0 +1,46 @@
+
+server {
+    listen 80;
+  ## SSL directives might go here
+    server_name _ www.complexsuplementos.com.br *.complexsuplementos.com.br; ## Tem que ter o dominio com www e sem www. Deixe o _ apenas enquanto seu dominio nao estiver apontando pra cá (no caso de ainda $
+
+    location / {
+    root   /usr/share/nginx/html;
+    index index.php index.html; ## Allow a static html file to be shown first
+    try_files $uri $uri/ @handler; ## If missing pass the URI to Magento's front handler
+    expires 30d; ## Assume all files are cachable
+    }
+
+    ## These locations would be hidden by .htaccess normally
+    location ~ (/(app/|includes/|/pkginfo/|var/|report/config.xml)|/\.svn/|/\.git/|/.hta.+) {
+    deny all;
+    }
+
+    location /var/export/ { ## Allow admins only to view export folder
+    auth_basic           "Restricted"; ## Message shown in login window
+    auth_basic_user_file htpasswd; ## See /etc/nginx/htpassword
+    autoindex            on;
+    }
+
+    location  /. { ## Disable .htaccess and other hidden files
+    return 404;
+    }
+
+    location @handler { ## Magento uses a common front handler
+    rewrite / /index.php;
+    }
+
+    location ~ .php/ { ## Forward paths like /js/index.php/x.js to relevant handler
+    rewrite ^(.*.php)/ $1 last;
+    }
+
+    location ~ .php$ { ## Execute PHP scripts
+    if (!-e $request_filename) { rewrite / /index.php last; } ## Catch 404s that try_files miss
+    expires off; #nao usar cache pra php (dinamico)
+    fastcgi_pass    unix:/var/run/php-fpm/php-fpm.sock;
+    fastcgi_index  index.php;
+    fastcgi_param  SCRIPT_FILENAME  /usr/share/nginx/html$fastcgi_script_name;
+    include        fastcgi_params;
+    }
+}
+

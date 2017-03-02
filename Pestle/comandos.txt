@@ -1,0 +1,3 @@
+php pestle.phar generate_module Mage2b AdminMenu 0.0.1
+php pestle.phar generate_route Pulsestorm_KnockoutTutorial frontend pulsestorm_knockouttutorial
+php pestle.phar generate_view Pulsestorm_KnockoutTutorial frontend pulsestorm_knockouttutorial_index_index Main content.phtml 1column

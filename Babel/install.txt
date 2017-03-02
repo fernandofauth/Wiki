@@ -1,0 +1,9 @@
+instalar node.js npm package
+curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash
+sudo apt-get install -y nodejs
+sudo apt-get install -y build-essential
+
+
+npm init
+npm install --save-dev babel-cli
+npm install babel-preset-es2015 --save-dev

@@ -1,0 +1,2 @@
+Tem que ver se tem um tema que não existe mais na raiz e está cadastrado no banco.
+Só remove-lo.

@@ -1,0 +1,6 @@
+# Recursively, set the group ownership of every file and directory of your repository:
+chgrp -R www-data /usr/share/nginx/html/
+
+# Recursively, make every file and directory of your repository readable and writable
+# by the group:
+chmod -R g+rw /usr/share/nginx/html/

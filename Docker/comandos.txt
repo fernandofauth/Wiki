@@ -1,0 +1,58 @@
+comandos docker / docker commands
+
+docker login
+docker logout
+
+docker ps 
+lista todos containers que estão rodando
+list all running containers.
+
+docker ps -a
+exibe todos containers
+show all containers
+
+docker exec id_da_imagem comando_que_quiser
+
+executa um comando dentro do container, ex( run a command inside a container ) :
+docker exec 990903923923 nginx start
+
+docker inspect container_id
+exibe todas infos do container, ip, portas, etc.( show all container infos )
+
+docker stop container_id
+para o container sem matar ele ( stop container without kill ).
+
+docker rm container_id
+remove o container não em execução ( remove containers are not running)
+
+docker rm -f container_id
+remove o container mesmo em execução ( remove a containers same if then are running )
+
+docker tag image_id my_acc/my_repo:docker_hub_tag_image_name
+ex: docker tag 1c1c2962e950 fernandofauth/utilitarios:ubuntu14.04
+
+docker tag image_id my_acc/my_repo:docker_hub_tag_image_name
+ex: docker push fernandofauth/utilitarios:ubuntu14.04
+
+OBS: Se você criar uma tagname e der um push para o hub com o mesmo nome ele vai sobreescreve-la.
+OBS: If you create a tagname and push to dockerhub with the same name, he will be overwrite the old image.
+
+
+Roda a imamge
+docker run -i -t 5372374632cd /bin/bash
+
+Entra no container
+docker attach
+
+Sai do container
+cntrl+p+q
+
+Verifica a porta
+docker port ubuntu1604-files 22
+
+Remove imagem
+docker rmi id_da_imagem
+
+Criando imagem do container
+docker commit -m "My first container" container_id suaconta/nomedaimage:0.0.0
+

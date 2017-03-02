@@ -1,0 +1,19 @@
+chown -R ubuntu /usr/share/nginx/html/
+chmod -R 755 /usr/share/nginx/html/
+
+
+find -type d -exec chmod 770 {} +
+find -type f -exec chmod 660 {} +
+
+
+php /usr/share/nginx/html/magento2/bin sampledata:deploy
+
+
+
+
+chown -R ubuntu:www-data /usr/share/nginx/html/magento2
+find /usr/share/nginx/html/magento2 -type f -print0 | xargs -r0 chmod 640
+find /usr/share/nginx/html/magento2 -type d -print0 | xargs -r0 chmod 750
+chmod -R g+w /usr/share/nginx/html/magento2/{pub,var}
+
+chmod -R g+w /usr/share/nginx/html/magento2/{app/etc,vendor}

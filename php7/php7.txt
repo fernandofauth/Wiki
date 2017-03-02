@@ -1,0 +1,14 @@
+sudo apt-get install python-software-properties
+sudo LC_ALL=C.UTF-8 add-apt-repository ppa:ondrej/php
+sudo apt-get update
+sudo apt-get install php7.0 php7.0-*
+
+
+
+
+Optionally purge PHP 5:
+
+sudo apt-get remove php5-common -y
+Or directly purge it including configuration files:
+
+sudo apt-get purge php5-common -y

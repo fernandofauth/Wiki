@@ -1,0 +1,1 @@
+./bin/magento setup:perf:generate-fixtures setup/performance-toolkit/profiles/ce/small.xml

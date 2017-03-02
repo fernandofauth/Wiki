@@ -1,0 +1,133 @@
+Instalando nginx + php-fpm + varnish no linux!
+
+Configuração do varnish! 
+
+downlaod do magento 
+
+Configuração do banco em um app RDS
+
+e por fim configuração do  IonCube!
+
+TUDO ISSO EM UMA INSTANCIA EC2 na AWS!
+
+Iniciando a instalação do nginx!
+
+1. Vamos atualizar o linux e ajustar configurações de tempo
+
+sudo yum -y update
+ 
+sudo ln -sf /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
+
+2. Instalar o servidor web Nginx e o PHP-FPM
+sudo yum install -y nginx php-fpm
+
+3. Instalar as extensões necessárias para o Magento e outras extensões comuns
+
+sudo yum install -y php-devel php-mysql php-pdo php-pear php-mbstring php-cli php-odbc php-imap php-gd php-xml php-soap php-mcrypt
+
+4. Instalar o PHP APC (Alternative PHP Cache) – Opcional
+
+sudo yum install -y php-pecl-apc
+
+5. Configurando o Nginx
+
+cd /etc/nginx/conf.d/
+ 
+sudo cp virtual.conf virtual.conf.bkp
+
+crie o arquivo complex.conf e copie tudo do arquivo complex.conf
+
+6. Configurar o PHP-FPM
+
+cd /etc/php-fpm.d/
+ 
+sudo cp www.conf www.conf.bkp
+ 
+sudo nano www.conf
+
+;listen = 127.0.0.1:9000
+listen = /var/run/php-fpm/php-fpm.sock
+ 
+listen.owner = nginx
+;listen.group = nobody
+listen.mode = 0664
+ 
+; RPM: apache Choosed to be able to access some dir as httpd
+user = nginx
+; RPM: Keep a group allowed to write in log dir.
+group = nginx
+
+7. Iniciando o PHP-FPM e Nginx
+
+sudo service php-fpm start
+sudo service nginx start
+
+sudo chkconfig nginx on
+sudo chkconfig php-fpm on
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+1.Download do magento
+
+cd ~
+mkdir temp
+cd temp
+wget http://www.webdrasil.com/files/m_1.8.tar
+cd ~
+mkdir sql
+wget http://www.webdrasil.com/sql/ma_pharmacy.sql
+tar xvf m_1.8.tar
+
+sudo mv magento/* /usr/share/nginx/html/
+
+2. Configure as permissoes de pasta
+
+cd /usr/share/nginx/html
+chmod -R o+w media var
+chmod o+w app/etc
+
+3. Configuração do arquivo global do Nginx
+
+sudo cp /etc/nginx/nginx.conf /etc/nginx/nginx.conf.bkp
+
+sudo nano /etc/nginx/nginx.conf
+
+substitua tudo pelos dados do arquivo nginx.conf.txt
+
+PARA EVITAR CONFLITOS sudo mv /etc/nginx/conf.d/default.conf /etc/nginx/conf.d/default.conf.disabled
+
+sudo service php-fpm restart
+sudo service nginx restart
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+CONFIGURAÇÃO DO BANCO RDS
+
+Apos criado o banco e a instancia RDS em mysql 5.27
+
+Para poder conectar no seu banco use
+
+mysql -h endpoint -u seuadmindobanco -p seubanco
+
+conectado selecione seu banco
+
+use meubanco;
+
+depois faça o uploado dos arquivos sql ( se preciso )
+
+source ~/temp/sql/ma_pharmacy.sql
+
+terminado basta sair 
+
+exit;
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Configurando o varnish
+
+copiar os respectivos arquivos para os locais
+
+default.vcl.txt /etc/varnish/default.vcl
+varnish.txt /etc/sysconfig/varnish
+
+

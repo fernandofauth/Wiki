@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<!-- saved from url=(0095)http://www.howtogeek.com/124622/how-to-enlarge-a-virtual-machines-disk-in-virtualbox-or-vmware/ -->
+<html itemscope="" itemtype="http://schema.org/Article"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link href="https://plus.google.com/100292833634918081724" rel="publisher">
+<title>How To Enlarge a Virtual Machine’s Disk in VirtualBox or VMware</title>
+
+<meta property="fb:page_id" content="65878196434">
+<meta name="verify-v1" content="WiU7236KQY8e6jcxePbZscPXDuMvJ3b9ydseGd4G5AE=">
+<meta name="ROBOTS" content="INDEX, FOLLOW">
+<meta name="REVISIT-AFTER" content="1 DAYS">
+<link rel="alternate" type="application/rss+xml" title="How-To Geek RSS Feed" href="http://feeds.howtogeek.com/HowToGeek">
+<meta property="og:title" itemprop="name" name="title" content="How To Enlarge a Virtual Machine’s Disk in VirtualBox or VMware">
+<meta property="og:type" content="article">
+<meta property="og:description" name="og:description" itemprop="og:description" content="When you create a virtual hard disk in VirtualBox or VMware, you specify a maximum disk size. If you want more space on your virtual machine’s hard disk later, you’ll have to enlarge the virtual hard disk and partition.">
+<meta property="og:image" content="http://www.howtogeek.com/thumbcache/280/160/fc209200d9db1eb81cc492d5986ebbb5/wp-content/uploads/2012/09/image143.png">
+<link rel="image_src" href="http://www.howtogeek.com/thumbcache/280/160/fc209200d9db1eb81cc492d5986ebbb5/wp-content/uploads/2012/09/image143.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@howtogeek">
+<meta name="twitter:title" content="How To Enlarge a Virtual Machine’s Disk in VirtualBox or VMware">
+<meta name="twitter:description" content="When you create a virtual hard disk in VirtualBox or VMware, you specify a maximum disk size. If you want more space on your virtual machine’s hard disk later, you’ll have to enlarge the virtual hard disk and partition.">
+<meta name="twitter:image:src" content="http://www.howtogeek.com/thumbcache/280/160/fc209200d9db1eb81cc492d5986ebbb5/wp-content/uploads/2012/09/image143.png">
+<link rel="stylesheet" href="./How To Enlarge a Virtual Machine’s Disk in VirtualBox or VMware_files/A.howtogeek.css,q1466298260.pagespeed.gp+jp+jw+pj+ec+ei+fc+if+ii+js+rj+rp+rw+ri+cp+md.cf.8phhU3MPa4.css" type="text/css">
+<link href="./How To Enlarge a Virtual Machine’s Disk in VirtualBox or VMware_files/css" rel="stylesheet" type="text/css">
+<link rel="shortcut icon" href="http://www.howtogeek.com/public/favicon.ico" type="image/x-icon">
+<script src="./How To Enlarge a Virtual Machine’s Disk in VirtualBox or VMware_files/cb=gapi.loaded_2" async=""></script><script src="./How To Enlarge a Virtual Machine’s Disk in VirtualBox or VMware_files/quant.js.download" async="" type="text/javascript"></script><script async="" src="./How To Enlarge a Virtual Machine’s Disk in VirtualBox or VMware_files/analytics.js.download"></script><script async="" src="./How To Enlarge a Virtual Machine’s Disk in VirtualBox or VMware_files/beacon.js.download"></script><script src="./How To Enlarge a Virtual Machine’s Disk in VirtualBox or VMware_files/cb=gapi.loaded_1" async=""></script><script src="./How To Enlarge a Virtual Machine’s Disk in VirtualBox or VMware_files/cb=gapi.loaded_0" async=""></script><script id="twitter-wjs" src="./How To Enlarge a Virtual Machine’s Disk in VirtualBox or VMware_files/widgets.js.download"></script><script type="text/javascript" async="" src="./How To Enlarge a Virtual Machine’s Disk in VirtualBox or VMware_files/plusone.js.download" gapi_processed="true"></script><script id="facebook-jssdk" src="./How To Enlarge a Virtual Machine’s Disk in VirtualBox or VMware_files/all.js.download"></script><script type="text/javascript" src="./How To Enlarge a Virtual Machine’s Disk in VirtualBox or VMware_files/jquery.min.js.download"></script>
+<script type="text/javascript">var statsUrl='/public/image.php?id=124622&1482986217';</script>	<script type="text/javascript" src="./How To Enlarge a Virtual Machine’s Disk in VirtualBox or VMware_files/htg201606182113.js,q1466298927.pagespeed.jm.Ekq5inqfrc.js.download"></script>
+<link rel="https://api.w.org/" href="http://www.howtogeek.com/wp-json/">
+<link rel="shortlink" href="http://www.howtogeek.com/?p=124622">
+<link rel="alternate" type="application/json+oembed" href="http://www.howtogeek.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fwww.howtogeek.com%2F124622%2Fhow-to-enlarge-a-virtual-machines-disk-in-virtualbox-or-vmware%2F">
+<link rel="alternate" type="text/xml+oembed" href="http://www.howtogeek.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fwww.howtogeek.com%2F124622%2Fhow-to-enlarge-a-virtual-machines-disk-in-virtualbox-or-vmware%2F&amp;format=xml">
+<link rel="canonical" href="http://www.howtogeek.com/124622/how-to-enlarge-a-virtual-machines-disk-in-virtualbox-or-vmware/">
+<meta property="og:url" content="http://www.howtogeek.com/124622/how-to-enlarge-a-virtual-machines-disk-in-virtualbox-or-vmware/"><link rel="amphtml" href="http://www.howtogeek.com/124622/how-to-enlarge-a-virtual-machines-disk-in-virtualbox-or-vmware/amp/">
+<script type="text/javascript" src="http://ads.servebom.com/tmnhead.js"></script>
+<script type="text/javascript">tmntag.placement('2460');tmntag.target({kw:['other','124622']});tmntag.start();</script>
+<script pagespeed_no_defer="">(function(){var f=function(a,b,c){if(a.addEventListener)a.addEventListener(b,c,!1);else if(a.attachEvent)a.attachEvent("on"+b,c);else{var d=a["on"+b];a["on"+b]=function(){c.call(this);d&&d.call(this)}}};window.pagespeed=window.pagespeed||{};
+var g=window.pagespeed,k=function(a){this.d=[];this.e=0;this.c=!1;this.h=a;this.f=null;this.i=0;this.b=!1;this.a=0},l=function(a,b){var c=b.getAttribute("pagespeed_lazy_position");if(c)return parseInt(c,0);var c=b.offsetTop,d=b.offsetParent;d&&(c+=l(a,d));c=Math.max(c,0);b.setAttribute("pagespeed_lazy_position",c);return c},m=function(a,b){var c,d,e;if(!a.b&&(0==b.offsetHeight||0==b.offsetWidth))return!1;e:if(b.currentStyle)d=b.currentStyle.position;else{if(document.defaultView&&document.defaultView.getComputedStyle&&
+(d=document.defaultView.getComputedStyle(b,null))){d=d.getPropertyValue("position");break e}d=b.style&&b.style.position?b.style.position:""}if("relative"==d)return!0;e=0;"number"==typeof window.pageYOffset?e=window.pageYOffset:document.body&&document.body.scrollTop?e=document.body.scrollTop:document.documentElement&&document.documentElement.scrollTop&&(e=document.documentElement.scrollTop);c=window.innerHeight||document.documentElement.clientHeight||document.body.clientHeight;d=e;e=e+c;var h=b.getBoundingClientRect();
+h?(e=h.top-c,d=h.bottom):(h=l(a,b),c=h+b.offsetHeight,e=h-e,d=c-d);return e<=a.e&&0<=d+a.e};
+k.prototype.j=function(a){p(a);var b=this;window.setTimeout(function(){var c=a.getAttribute("pagespeed_lazy_src");if(null!=c)if((b.c||m(b,a))&&-1!=a.src.indexOf(b.h)){var d=a.parentNode,e=a.nextSibling;d&&d.removeChild(a);a.g&&(a.getAttribute=a.g);a.removeAttribute("onload");a.tagName&&"IMG"==a.tagName&&g.CriticalImages&&f(a,"load",function(){g.CriticalImages.checkImageForCriticality(this);b.b&&(b.a--,0==b.a&&g.CriticalImages.checkCriticalImages())});a.removeAttribute("pagespeed_lazy_src");a.removeAttribute("pagespeed_lazy_replaced_functions");
+d&&d.insertBefore(a,e);a.src=c}else b.d.push(a)},0)};k.prototype.loadIfVisibleAndMaybeBeacon=k.prototype.j;k.prototype.k=function(){this.c=!0;q(this)};k.prototype.loadAllImages=k.prototype.k;var q=function(a){var b=a.d,c=b.length;a.d=[];for(var d=0;d<c;++d)a.j(b[d])},s=function(a,b){return a.a?null!=a.a(b):null!=a.getAttribute(b)};k.prototype.l=function(){for(var a=document.getElementsByTagName("img"),b=0,c;c=a[b];b++)s(c,"pagespeed_lazy_src")&&p(c)};k.prototype.overrideAttributeFunctions=k.prototype.l;
+var p=function(a){s(a,"pagespeed_lazy_replaced_functions")||(a.g=a.getAttribute,a.getAttribute=function(a){"src"==a.toLowerCase()&&s(this,"pagespeed_lazy_src")&&(a="pagespeed_lazy_src");return this.g(a)},a.setAttribute("pagespeed_lazy_replaced_functions","1"))};
+g.m=function(a,b){var c=new k(b);g.lazyLoadImages=c;f(window,"load",function(){c.b=!0;c.c=a;c.e=200;if(g.CriticalImages){for(var b=0,d=document.getElementsByTagName("img"),r=0,n;n=d[r];r++)-1!=n.src.indexOf(c.h)&&s(n,"pagespeed_lazy_src")&&b++;c.a=b;0==c.a&&g.CriticalImages.checkCriticalImages()}q(c)});0!=b.indexOf("data")&&((new Image).src=b);var d=function(){if(!(c.b&&a||c.f)){var b=200;200<(new Date).getTime()-c.i&&(b=0);c.f=window.setTimeout(function(){c.i=(new Date).getTime();q(c);c.f=null},
+b)}};f(window,"scroll",d);f(window,"resize",d)};g.lazyLoadInit=g.m;})();
+
+pagespeed.lazyLoadInit(true, "/pagespeed_static/1.JiBnMqyl6S.gif");
+</script><script type="text/javascript" charset="utf-8" async="" src="./How To Enlarge a Virtual Machine’s Disk in VirtualBox or VMware_files/button.3943c052be33b5e812dac6838df9cb3d.js.download"></script><style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}.fb_link img{border:none}@keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_reset .fb_dialog_legacy{overflow:visible}.fb_dialog_advanced{padding:10px;-moz-border-radius:8px;-webkit-border-radius:8px;border-radius:8px}.fb_dialog_content{background:#fff;color:#333}.fb_dialog_close_icon{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;_background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yL/r/s816eWC-2sl.gif);cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent;_background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yL/r/s816eWC-2sl.gif)}.fb_dialog_close_icon:active{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent;_background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yL/r/s816eWC-2sl.gif)}.fb_dialog_loader{background-color:#f6f7f9;border:1px solid #606060;font-size:24px;padding:20px}.fb_dialog_top_left,.fb_dialog_top_right,.fb_dialog_bottom_left,.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}.fb_dialog_top_left{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}.fb_dialog_top_right{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}.fb_dialog_bottom_left{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}.fb_dialog_bottom_right{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}.fb_dialog_vert_left,.fb_dialog_vert_right,.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}.fb_dialog_vert_left,.fb_dialog_vert_right{width:10px;height:100%}.fb_dialog_vert_left{margin-left:-10px}.fb_dialog_vert_right{right:0;margin-right:-10px}.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{width:100%;height:10px}.fb_dialog_horiz_top{margin-top:-10px}.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #365899;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{-webkit-transform:none;height:100%;margin:0;overflow:visible;position:absolute;top:-10000px;left:0;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{width:auto;height:auto;min-height:initial;min-width:initial;background:none}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{color:#fff;display:block;padding-top:20px;clear:both;font-size:18px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;bottom:0;left:0;right:0;top:0;width:100%;min-height:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#4966A6), color-stop(.5, #355492), to(#2A4887));border:1px solid #29487d;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset, rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f6f7f9;border:1px solid #555;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/t-wz8gw1xG1.png);background-repeat:no-repeat;background-position:50% 50%;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_hide_iframes iframe{position:relative;left:-10000px}.fb_iframe_widget_loader{position:relative;display:inline-block}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}.fb_iframe_widget_loader .FB_Loader{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}</style></head>
+<body class="v3 fppgcbpm_0">
+<div style="text-align:center;min-height:90px;z-index:999999;margin-right:auto;margin-left:auto;position:relative;" class="adslot adslot970">
+<div id="htgyl11">
+<script type="text/javascript">tmntag.adTag('purch_Y_L_1_1');</script>
+</div>
+</div>
+<div id="doc4" class="yui-t7">
+<div id="hd">
+<div id="htgHeader" style="border-top:4px solid #172232;">
+<div class="logo" style="">
+<h1 id="printH1">How-To Geek</h1><a href="http://www.howtogeek.com/" class="home"><img src="data:image/gif;base64,R0lGODlhAQABAIAAADoSLQAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" alt="How-To Geek"></a>
+<div style="float:right;width:450px">
+<ul class="bigmenu">
+<li class="menubaritem">Articles <span class="nc4"><span class="nc4l"> l </span><span class="nc4r"> l </span></span>
+<div class="subMenu">
+<div class="subMenuArticles">
+<div class="smawrap">
+<a href="http://www.howtogeek.com/278132/whats-new-in-windows-10s-creators-update/" align="left" class="title" rel="bookmark"><span><img src="./How To Enlarge a Virtual Machine’s Disk in VirtualBox or VMware_files/xwin10-creators-650x325.png.pagespeed.gp+jp+jw+pj+js+rj+rp+rw+ri+cp+md.ic.uOG9gnz8by.jpg"></span></a>
+<a href="http://www.howtogeek.com/278132/whats-new-in-windows-10s-creators-update/" class="title" rel="bookmark">What’s New in Windows 10’s Creators Update, Arriving Spring 2017</a>
+</div>
+<div class="smawrap">
+<a href="http://www.howtogeek.com/285277/how-to-avoid-washed-out-colors-when-using-hdmi-on-your-pc/" align="left" class="title" rel="bookmark"><span><img src="./How To Enlarge a Virtual Machine’s Disk in VirtualBox or VMware_files/ximg_5855c59025661.jpg.pagespeed.gp+jp+jw+pj+js+rj+rp+rw+ri+cp+md.ic.P_lZp7Kvb_.jpg"></span></a>
+<a href="http://www.howtogeek.com/285277/how-to-avoid-washed-out-colors-when-using-hdmi-on-your-pc/" class="title" rel="bookmark">How to Avoid Washed Out Colors When Using HDMI on Your PC</a>
+</div>
+<div class="smawrap">
+<a href="http://www.howtogeek.com/286198/where-should-i-sell-my-old-stuff-ebay-vs-craigslist-vs-amazon/" align="left" class="title" rel="bookmark"><span><img src="./How To Enlarge a Virtual Machine’s Disk in VirtualBox or VMware_files/xPasted-image-at-2016_12_23-05_49-PM.png.pagespeed.gp+jp+jw+pj+js+rj+rp+rw+ri+cp+md.ic.rP4SeN75ir.jpg"></span></a>
+<a href="http://www.howtogeek.com/286198/where-should-i-sell-my-old-stuff-ebay-vs-craigslist-vs-amazon/" class="title" rel="bookmark">Where Should I Sell My Old Stuff? eBay vs. Craigslist vs. Amazon</a>
+</div>
+<div class="smawrap">
+<a href="http://www.howtogeek.com/285634/how-to-set-up-all-your-new-holiday-gadgets/" align="left" class="title" rel="bookmark"><span><img src="./How To Enlarge a Virtual Machine’s Disk in VirtualBox or VMware_files/x6171377827_a25b39d8db_b.jpg.pagespeed.gp+jp+jw+pj+js+rj+rp+rw+ri+cp+md.ic.GL8NcZd9xq.jpg"></span></a>
+<a href="http://www.howtogeek.com/285634/how-to-set-up-all-your-new-holiday-gadgets/" class="title" rel="bookmark">How to Set Up All Your New Holiday Gadgets</a>
+</div>
+<div style="clear:both;"></div>
+</div>
+<div style="clear:both;"></div>
+</div>
+</li>
+<li class="menubaritem">Subscribe <span class="nc4"><span class="nc4l"> l </span><span class="nc4r"> l </span></span>
+<div class="subMenu" style="padding-bottom:10px">
+<div class="subMenuSection" style="margin-left:20px;">
+<h4>FOLLOW US</h4>
+<ul style="width:100px;">
+<li><h2><a class="icon-twitter" href="https://twitter.com/intent/user?original_referer=http://www.howtogeek.com&amp;region=following&amp;screen_name=howtogeek&amp;tw_p=followbutton&amp;variant=2.0" target="_blank">TWITTER</a></h2></li>
+<li><h2><a class="icon-google-plus" href="http://plus.google.com/+howtogeek">GOOGLE+</a></h2></li>
+</ul>
+</div>
+<div class="subMenuSection" style="margin-left:0px;">
+<h4>&nbsp;</h4>
+<ul style="width:100px;">
+<li><h2><a class="icon-facebook" href="http://facebook.com/howtogeek" rel="nofollow">FACEBOOK</a></h2></li>
+</ul>
+</div>
+<div class="subMenuSection" style="margin-left:20px;">
+<div id="subemsub" class="submenudetail sm400 noclick" style="padding-bottom:20px">
+<div id="emquest"><div class="fs1" aria-hidden="true" data-icon=""></div></div>
+<span>GET UPDATES BY EMAIL</span>
+<form action="http://www.howtogeek.com/em/subscribe" method="post">
+<input type="hidden" name="list" value="weekday">
+<input type="hidden" name="tr" value="topmenu">
+<input type="text" id="fromaddress" name="emailaddress" style="z-index:-9;left:-1500;top:-1500;height:1px;width:1px;position:absolute;">
+<p style="font-family:&#39;Open Sans&#39;;text-transform:none;">Enter your email below to get exclusive access to our best articles and tips before everybody else.</p>
+<p><input type="text" id="from" name="email" value="Enter Your Email Here" style="width:200px;color:#BBB;margin-left:59px;font-family:&#39;Open Sans&#39;;text-transform:none;"><input id="sub1" name="sub1" type="submit" value="Get Your Newsletter Now" style="background:#55A8DF;margin-left:59px;width:212px;margin-top:6px;font-family:&#39;Open Sans&#39;;text-transform:none;"></p>
+<div style="clear:both;"></div>
+</form>
+</div>
+</div>
+<div class="subMenuSection" style="margin-left:20px;">
+<h4>RSS</h4>
+<ul style="width:130px;">
+<li><h2><a class="icon-feed" href="http://feeds.howtogeek.com/howtogeek">ALL ARTICLES</a></h2></li>
+<li><h2><a class="icon-feed" href="http://www.howtogeek.com/t/features/feed/" rel="nofollow">FEATURES ONLY</a></h2></li>
+</ul>
+</div>
+<div class="subMenuSection" style="margin-left:0px;">
+<h4>&nbsp;</h4>
+<ul style="width:150px;">
+<li><h2><a class="icon-feed" href="http://www.howtogeek.com/trivia/feed/" rel="nofollow">TRIVIA</a></h2></li>
+</ul>
+</div>
+</div>
+</li>
+<li class="menubaritem">Search <span class="icon-magnifying-glass" style="padding-left: 10px;font-size:16px;"></span>
+<div class="subMenu" style="padding:20px;text-align:center">
+<form action="http://www.howtogeek.com/search/" method="get" id="sea">
+<input type="text" name="q" id="s" value="" style="width:900px;height:40px;line-height:40px;border:1px solid #CCC;">
+<input id="searchsubmit" type="submit" value="Go" style="height: 42px;
+border: 1px solid #CCC;
+font-family: &#39;Open Sans&#39;;
+font-size: 16px;
+padding: 10px;
+background: rgba(196, 230, 237, 0.99);
+border-radius: 0 5px 5px 0">
+</form>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="bd">
+<div class="yui-g" id="headerpanel"></div>
+<div class="yui-ge">
+<div class="yui-u first">
+<div class="content" id="htgArticle">
+<h1 id="printHeader" style="display:none">How-To Geek</h1>
+<!-- abovepost -->
+<div class="thepost" id="post-124622">
+<style>.thepost h2 a em{font-style:italic;font-weight:600}.thecontent>pre{text-align:left;clear:both;margin:0;border:1px dashed #2f6fab;color:#000;background-color:#f9f9f9;line-height:1.1em;font-family:monospace;max-width:618px;padding:20px 10px 20px 10px;overflow-x:auto;margin-bottom:10px}p+.relatedside{margin-top:8px!important}.inlinessp h2{padding-top:0;padding-bottom:0;font-size:130%;margin-bottom:0px;width:auto;color:#114491}.inlinessp p{margin-top:5px;margin-bottom:5px}a.cdlnk{border:1px solid #999;padding:5px 8px;border-radius:5px;text-decoration:none!important;background:#8be654;color:#000!important}a.cdlnk:hover{box-shadow:1px 1px 1px 1px #ccc}</style>
+<h2 style="margin-top:10px;"><a style="font-family:&#39;Open Sans&#39;,sans-serif;" href="http://www.howtogeek.com/124622/how-to-enlarge-a-virtual-machines-disk-in-virtualbox-or-vmware/" rel="bookmark" title="How To Enlarge a Virtual Machine’s Disk in VirtualBox or VMware">How To Enlarge a Virtual Machine’s Disk in VirtualBox or VMware</a></h2>
+<div class="thecontent">
+<!-- google_ad_section_start -->
+<p><img style="background-image: none; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border-width: 0px;" title="image" alt="image" width="650" height="300" border="0" src="./How To Enlarge a Virtual Machine’s Disk in VirtualBox or VMware_files/650x300ximage143.png.pagespeed.gp+jp+jw+pj+js+rj+rp+rw+ri+cp+md.ic._W08wBz9vK.jpg"></p>
+<p>When you create a virtual hard disk in VirtualBox or VMware, you specify a maximum disk size. If you want more space on your virtual machine’s hard disk later, you’ll have to enlarge the virtual hard disk and partition.</p>
+<p>Note that you may want to back up your virtual hard disk file before performing these operations – there’s always a chance something can go wrong, so it’s always good to have backups. However, the process worked fine for us.</p>
+<p><small>Image Credit: <a href="http://www.flickr.com/photos/flickrsven/716053039/" rel="nofollow">flickrsven</a></small></p>
+<div class="inlinessp" style="width:650px;overflow:hidden;max-height:250px;margin-top:-5px;margin-bottom:-20px;min-height:25px;">
+<script type="text/javascript" pagespeed_no_defer="">pagespeed.lazyLoadImages.overrideAttributeFunctions();</script><script async="" type="text/javascript" src="https://cdn.bttrack.com/js/infeed/2.0/infeed.min.js?t=5ffc6f78-a277-43dd-8b7b-5fdfa1483100&amp;bestrender=1&amp;pid=743224026&amp;sid=174764" class="bt-script"></script><img height="1" width="1" border="0" src="http://bttrack.com/Pixel/Check/743224026?1482986217" style="display: none !important;"></div><h3>Enlarge a Virtual Disk in VirtualBox</h3>
+<p>To enlarge a virtual disk in VirtualBox, you’ll need to use the VBoxManage command from a Command Prompt window. First, shut down the virtual machine – ensure its state is set to Powered Off, not Saved.</p>
+<p><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border-width: 0px;" title="image" alt="image" width="650" height="282" border="0" src="./How To Enlarge a Virtual Machine’s Disk in VirtualBox or VMware_files/650x282ximage144.png.pagespeed.gp+jp+jw+pj+js+rj+rp+rw+ri+cp+md.ic.ewDHLsRLBO.png"></p>
+<p>Second, open a Command Prompt window from your Start menu and change to VirtualBox’s program files folder so you can run the command:</p>
+<blockquote><p>cd “C:\Program Files\Oracle\VirtualBox”</p></blockquote>
+<p><img style="background-image: none; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border-width: 0px;" title="image" alt="image" width="650" height="200" border="0" src="./How To Enlarge a Virtual Machine’s Disk in VirtualBox or VMware_files/650x200ximage145.png.pagespeed.gp+jp+jw+pj+js+rj+rp+rw+ri+cp+md.ic.jBLaIkMyt6.png"></p>
+<p>The following command will operate on the VirtualBox virtual disk located at “C:\Users\Chris\VirtualBox VMs\Windows 7\Windows 7.vdi”. It will resize the virtual disk to 81920 MB (80 GB).</p>
+<blockquote><p><code>VBoxManage modifyhd “C:\Users\Chris\VirtualBox VMs\Windows 7\Windows 7.vdi” --resize 81920</code></p></blockquote>
+<p>(Use two dashes before <strong>resize</strong> in the command above.)</p>
+<p>Replace the file path in the command above with the location of the VirtualBox disk you want to resize and the number with the size you want to enlarge the image to (in MB).</p>
+<p><img style="background-image: none; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border-width: 0px;" title="image" alt="image" width="650" height="238" border="0" src="./How To Enlarge a Virtual Machine’s Disk in VirtualBox or VMware_files/650x238ximage146.png.pagespeed.gp+jp+jw+pj+js+rj+rp+rw+ri+cp+md.ic.kLBXkl_Gba.png"></p>
+<p>Note that this process doesn’t enlarge the partition on the virtual hard disk, so you won’t have access to the new space yet – see the Enlarge the Virtual Machine’s Partition section below for more information.</p>
+<h3>Enlarge a Virtual Disk in VMware</h3>
+<p>To enlarge a virtual machine’s hard disk in VMware, power off the virtual machine, right-click it, and select Virtual Machine Settings.</p>
+<p><img style="background-image: none; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border-width: 0px;" title="image" alt="image" width="650" height="377" border="0" src="./How To Enlarge a Virtual Machine’s Disk in VirtualBox or VMware_files/650x377ximage147.png.pagespeed.gp+jp+jw+pj+js+rj+rp+rw+ri+cp+md.ic.GDIHJmwYzy.png"></p>
+<p>Select the virtual hard disk device in the list, click the Utilities button, and click Expand to expand the hard disk.</p>
+<p><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border-width: 0px;" title="image" alt="image" width="650" height="597" border="0" src="./How To Enlarge a Virtual Machine’s Disk in VirtualBox or VMware_files/650x597ximage148.png.pagespeed.gp+jp+jw+pj+js+rj+rp+rw+ri+cp+md.ic.ktlsuTqJUo.png"></p>
+<p>Enter a larger maximum disk size and click the Expand button. VMware will increase the size of your virtual disk, although its partitions will remain the same size – see below for information on enlarging the partition.</p>
+<p><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: block; float: none; margin-left: auto; margin-right: auto; padding-top: 0px; border-width: 0px;" title="image" alt="image" width="412" height="255" border="0" src="./How To Enlarge a Virtual Machine’s Disk in VirtualBox or VMware_files/412x255ximage149.png.pagespeed.gp+jp+jw+pj+js+rj+rp+rw+ri+cp+md.ic.iVvE_7wBOV.png"></p>
+<h3>Enlarge the Virtual Machine’s Partition</h3>
+<p>You now have a larger virtual hard disk. However, the operating system’s partition on your virtual hard disk is the same size, so you won’t be able to access any of this space yet.</p>
+<p><img style="background-image: none; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border-width: 0px;" title="image" alt="image" width="650" height="360" border="0" src="./How To Enlarge a Virtual Machine’s Disk in VirtualBox or VMware_files/650x360ximage150.png.pagespeed.gp+jp+jw+pj+js+rj+rp+rw+ri+cp+md.ic.8dybwUNU1m.png"></p>
+<p>You’ll now need to extend the guest operating system’s partition as if you were enlarging a partition on a real hard disk in a physical computer. You can’t enlarge the partition while the guest operating system is running, just as you can’t enlarge your C:\ partition while Windows is running on your computer.</p>
+<p>You can use a GParted live CD to resize your virtual machine’s partition – simply boot the GParted ISO image in your virtual machine and you’ll be taken to the GParted partition editor in a live Linux environment. GParted will be able to enlarge the partition on the virtual hard disk.</p>
+<p>First, <a href="http://gparted.sourceforge.net/download.php">download the GParted live CD’s ISO file from here</a>.</p>
+<p>Load the ISO file into your virtual machine by going into the virtual machine’s settings window, selecting your virtual CD drive, and browsing to the ISO file on your computer.</p>
+<p><img style="background-image: none; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border-width: 0px;" title="image" alt="image" width="650" height="540" border="0" src="./How To Enlarge a Virtual Machine’s Disk in VirtualBox or VMware_files/650x540ximage151.png.pagespeed.gp+jp+jw+pj+js+rj+rp+rw+ri+cp+md.ic.AqtXzwO8SJ.png"></p>
+<p>Boot (or restart) your virtual machine after inserting the ISO image and the virtual machine will boot from the ISO image. GParted’s live CD will ask you several questions while booting – you can press Enter to skip them for the default options.</p>
+<p>Once GParted is booted, right-click the partition you want to enlarge and select Resize/Move.</p>
+<p><img style="background-image: none; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border-width: 0px;" title="image" alt="image" width="650" height="407" border="0" src="./How To Enlarge a Virtual Machine’s Disk in VirtualBox or VMware_files/650x407ximage152.png.pagespeed.gp+jp+jw+pj+js+rj+rp+rw+ri+cp+md.ic.KvvgWnZ6b-.png"></p>
+<p>Specify a new size for the partition – for example, drag the slider all the way to the right to use all the available space for the partition. Click the Resize/Move button after you’ve specified the space you want to use.</p>
+<p><img style="background-image: none; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border-width: 0px;" title="image" alt="image" width="650" height="559" border="0" src="./How To Enlarge a Virtual Machine’s Disk in VirtualBox or VMware_files/650x559ximage153.png.pagespeed.gp+jp+jw+pj+js+rj+rp+rw+ri+cp+md.ic.RSeNHd1DhT.png"></p>
+<p>Finally, click the Apply button to apply your changes and enlarge the partition.</p>
+<p><img style="background-image: none; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border-width: 0px;" title="image" alt="image" width="650" height="523" border="0" src="./How To Enlarge a Virtual Machine’s Disk in VirtualBox or VMware_files/650x523ximage154.png.pagespeed.gp+jp+jw+pj+js+rj+rp+rw+ri+cp+md.ic.oQi1SSoRYW.png"></p>
+<p>After the resize operation completes, restart your virtual machine and remove the GParted ISO file. Windows will check the file system in your virtual machine to ensure it’s working properly — don’t interrupt this check.</p>
+<p><img style="background-image: none; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px; border-width: 0px;" title="image" alt="image" width="650" height="572" border="0" src="./How To Enlarge a Virtual Machine’s Disk in VirtualBox or VMware_files/650x572ximage155.png.pagespeed.gp+jp+jw+pj+js+rj+rp+rw+ri+cp+md.ic.ApnORdWeDN.png"></p>
+<p>The virtual machine’s partition will now take up the entire virtual hard disk, so you’ll have access to the additional space.</p>
+<hr>
+<p>Note that there are easier ways to get more storage – you can add a second virtual hard disk to your virtual machine from its settings window. You can access the other hard disk’s contents on a separate partition – for example, if you’re using a Windows virtual machine, the other virtual hard disk will be accessible at a different drive letter inside your virtual machine.</p>
+<!-- google_ad_section_end -->
+</div>
+<div style="clear:both;height:0px;"></div>
+<!-- discourse comments begin -->
+<style>#discusslink{color:#585858;text-decoration:none}#discusslink:hover{color:#00f;text-decoration:none}.commenttext img{max-width:618px}</style>
+<div style="max-width:650px;width:100%;padding-top:10px;"><span style="font-family:bebas_neueregular;font-size:19px;position:relative;top:-9px;padding-right: 10px;float: left;background-color:#FFF;font-weight:normal;color: #868686;"><a id="discusslink" href="http://discuss.howtogeek.com/">JOIN THE DISCUSSION</a></span><div style="border-top:4px solid #CCC;"></div></div>
+<div style="clear:both;height:0px;"></div>
+<div id="socialmediabuttons" style="margin-bottom:0px;">
+<div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe name="fb_xdm_frame_http" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" id="fb_xdm_frame_http" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" src="./How To Enlarge a Virtual Machine’s Disk in VirtualBox or VMware_files/iPrOY23SGAp.html" style="border: none;"></iframe><iframe name="fb_xdm_frame_https" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" id="fb_xdm_frame_https" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" src="./How To Enlarge a Virtual Machine’s Disk in VirtualBox or VMware_files/iPrOY23SGAp(1).html" style="border: none;"></iframe></div></div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div></div></div></div>
+<script type="text/javascript" pagespeed_no_defer="">pagespeed.lazyLoadImages.overrideAttributeFunctions();</script><script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="//connect.facebook.net/en_US/all.js#xfbml=1";fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));</script>
+<div style="padding-right:20px;float:left;">
+<div class="fb-like fb_iframe_widget" data-href="http://www.howtogeek.com/124622/how-to-enlarge-a-virtual-machines-disk-in-virtualbox-or-vmware/" data-send="false" data-layout="box_count" data-width="450" data-show-faces="false" data-font="arial" fb-xfbml-state="rendered" fb-iframe-plugin-query="app_id=&amp;container_width=0&amp;font=arial&amp;href=http%3A%2F%2Fwww.howtogeek.com%2F124622%2Fhow-to-enlarge-a-virtual-machines-disk-in-virtualbox-or-vmware%2F&amp;layout=box_count&amp;locale=en_US&amp;sdk=joey&amp;send=false&amp;show_faces=false&amp;width=450"><span style="vertical-align: bottom; width: 51px; height: 40px;"><iframe name="f52cf7cb67ff34" width="450px" height="1000px" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" title="fb:like Facebook Social Plugin" src="./How To Enlarge a Virtual Machine’s Disk in VirtualBox or VMware_files/like.html" style="border: none; visibility: visible; width: 51px; height: 40px;" class=""></iframe></span></div>
+</div>
+<div style="padding-right:20px;float:left;">
+<div id="___plusone_0" style="text-indent: 0px; margin: 0px; padding: 0px; background: transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 50px; height: 60px;"><iframe frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position: static; top: 0px; width: 50px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 60px;" tabindex="0" vspace="0" width="100%" id="I0_1483041648710" name="I0_1483041648710" src="./How To Enlarge a Virtual Machine’s Disk in VirtualBox or VMware_files/fastbutton.html" data-gapiattached="true" title="+1"></iframe></div>
+</div>
+<script type="text/javascript">(function(){var po=document.createElement('script');po.type='text/javascript';po.async=true;po.src='https://apis.google.com/js/plusone.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(po,s);})();</script>
+<div style="padding-right:20px;float:left;">
+<div class="pocket-btn"><iframe width="60" height="63" id="pocket-button-0" frameborder="0" allowtransparency="true" scrolling="NO" src="./How To Enlarge a Virtual Machine’s Disk in VirtualBox or VMware_files/button.html"></iframe></div>
+<script type="text/javascript">!function(d,i){if(!d.getElementById(i)){var j=d.createElement("script");j.id=i;j.src="https://widgets.getpocket.com/v1/j/btn.js?v=1";var w=d.getElementById(i);d.body.appendChild(j);}}(document,"pocket-btn-js");</script>
+</div>
+<div style="padding-right:20px;float:left;">
+<iframe id="twitter-widget-2" scrolling="no" frameborder="0" allowtransparency="true" class="twitter-share-button twitter-share-button-rendered twitter-tweet-button" title="Twitter Tweet Button" src="./How To Enlarge a Virtual Machine’s Disk in VirtualBox or VMware_files/tweet_button.3748f7cda49448f6c6f7854238570ba0.en.html" style="position: static; visibility: visible; width: 61px; height: 20px;" data-url="http://www.howtogeek.com/124622/how-to-enlarge-a-virtual-machines-disk-in-virtualbox-or-vmware/"></iframe>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</div>
+<div style="clear:both;"></div>
+</div>
+<div id="postiddiv" post="124622"></div>
+<div style="clear:both;"></div>
+<div class="articleExtras" style="background: #FEFEFE;border-top:none;">
+<div style="width:450px;float:left;" id="authorinfobox">
+<p style="font-weight:normal;color:#333;"><a href="http://www.howtogeek.com/author/chrishoffman/"><b>Chris Hoffman</b></a> is a technology writer and all-around computer geek. He's as at home using the Linux terminal as he is digging into the Windows registry.
+Connect with him on <a href="https://plus.google.com/107865379603964146316?rel=author">Google+</a>.</p>
+</div>
+<div style="width:130px;float:right;">
+<ul class="normul" style="margin-bottom:6px;">
+<li>Published 09/16/12</li>
+<!--<li><span id="pv3"></span></li>-->
+</ul>
+<div style="margin-left:-14px;"><iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" class="twitter-follow-button twitter-follow-button-rendered" title="Twitter Follow Button" src="./How To Enlarge a Virtual Machine’s Disk in VirtualBox or VMware_files/follow_button.3748f7cda49448f6c6f7854238570ba0.en.html" style="position: static; visibility: visible; width: 149px; height: 20px;" data-screen-name="chrisbhoffman"></iframe></div>
+</div>
+<div style="clear:both"></div>
+</div>
+<div style="clear:both;"></div>
+<div class="below-post-features" style="width:650px;overflow:hidden;max-height:250px;margin-bottom:20px;">
+<div id="outbrain-below-article" style="">
+<style>.bt-t-eoa-content h2{font-size:140%;width:auto;color:#114491}.bt-t-eoa-content h2:hover{color:#d26b0f}.below-post-features:hover{box-shadow:0px 0px 3pt 2pt #62809c}#sb3{padding-top:0}.content{padding-bottom:0;margin-bottom:0}</style>
+<script async="" type="text/javascript" src="https://cdn.bttrack.com/js/infeed/1.1/5ffc6f78-a277-43dd-8b7b-5fdfa1483100/715276755/infeed.min.js" class="bt-script"></script><img height="1" width="1" border="0" src="http://bttrack.com/Pixel/Check/715276755?%%CACHEBUSTER%%" style="display: none !important;">
+</div>
+</div>
+<div style="width:100%;max-width:650px;margin-bottom:0px;">
+<div style="clear:both;"></div>
+</div>
+<div style="clear:both;"></div>
+<div id="showcomments" class="showcomments" style="">
+<a id="sc1" href="http://www.howtogeek.com/124622/how-to-enlarge-a-virtual-machines-disk-in-virtualbox-or-vmware/?showcomments=1#comments">SHOW ARCHIVED READER COMMENTS (6)</a>
+</div>
+<div id="commentsWrap" post="124622" replyto="0">
+<div id="sc2">
+<!-- You can start editing here. -->
+<h3 id="comments">Comments <span id="commentnumber">(6)</span></h3>
+<ol class="commentlist">
+<li class="comment-def" id="comment-192769">
+<div class="commentmetadata date"><a href="http://www.howtogeek.com/124622/how-to-enlarge-a-virtual-machines-disk-in-virtualbox-or-vmware/#comment-192769" title="">September 16, 2012</a></div>
+<div class="commentauthor"><div class="ca2">Venky</div></div>
+<div style="clear:both;"></div>
+<div class="commenttext"><p>Hi Chris Hoffman,</p>
+<p>Impressive articles – Very good.</p>
+<p>With Regards<br>
+Venky</p>
+</div>
+</li><!-- #comment-## -->
+<li class="comment-alt" id="comment-192776">
+<div class="commentmetadata date"><a href="http://www.howtogeek.com/124622/how-to-enlarge-a-virtual-machines-disk-in-virtualbox-or-vmware/#comment-192776" title="">September 16, 2012</a></div>
+<div class="commentauthor"><div class="ca2">bobo42813</div></div>
+<div style="clear:both;"></div>
+<div class="commenttext"><p>To bad this VM Junk doesn’t work on Linux Ubuntu 12.4 LTS.</p>
+<p>Have fun,<br>
+Bob</p>
+</div>
+</li><!-- #comment-## -->
+<li class="comment-def" id="comment-192779">
+<div class="commentmetadata date"><a href="http://www.howtogeek.com/124622/how-to-enlarge-a-virtual-machines-disk-in-virtualbox-or-vmware/#comment-192779" title="">September 16, 2012</a></div>
+<div class="commentauthor"><div class="ca2">Dave</div></div>
+<div style="clear:both;"></div>
+<div class="commenttext"><p>Nice article but I think I’ll go back to vacuum tubes. At least I understood and could see them. Gonna have to read this a couple of times to understand it. DUH!</p>
+</div>
+</li><!-- #comment-## -->
+<li class="comment-alt" id="comment-192781">
+<div class="commentmetadata date"><a href="http://www.howtogeek.com/124622/how-to-enlarge-a-virtual-machines-disk-in-virtualbox-or-vmware/#comment-192781" title="">September 16, 2012</a></div>
+<div class="commentauthor"><div class="ca2">r</div></div>
+<div style="clear:both;"></div>
+<div class="commenttext"><p>…good 2 know</p>
+</div>
+</li><!-- #comment-## -->
+<li class="comment-def" id="comment-192783">
+<div class="commentmetadata date"><a href="http://www.howtogeek.com/124622/how-to-enlarge-a-virtual-machines-disk-in-virtualbox-or-vmware/#comment-192783" title="">September 16, 2012</a></div>
+<div class="commentauthor"><div class="ca2">Tony</div></div>
+<div style="clear:both;"></div>
+<div class="commenttext"><p>bobo42813, what problem are you having with using this in Ubuntu 12.04? Is Ubuntu running as the host, or as the virtual machine? Please tell us what steps you’ve tried and what problems you’ve run into, being as specific as you can, and we’ll see if we can figure it out.<br>
+Tony</p>
+</div>
+</li><!-- #comment-## -->
+<li class="comment-alt" id="comment-192875">
+<div class="commentmetadata date"><a href="http://www.howtogeek.com/124622/how-to-enlarge-a-virtual-machines-disk-in-virtualbox-or-vmware/#comment-192875" title="">September 17, 2012</a></div>
+<div class="commentauthor"><div class="ca2">bobby_tables</div></div>
+<div style="clear:both;"></div>
+<div class="commenttext"><p>You should just be able to extend the volume inside of disk management. So you shouldn’t need a third party utility to expand or shrink the partition in Windows 7/Vista or higher.</p>
+</div>
+</li><!-- #comment-## -->
+</ol>
+<div style="clear:both;"></div>
+</div>
+<div id="respond"></div>
+</div>
+<div style="clear:both;"></div>
+</div>
+<div style="clear:both;"></div>
+<img src="./How To Enlarge a Virtual Machine’s Disk in VirtualBox or VMware_files/image.php" alt="" id="htgstats" style="display:none"></div>
+</div>
+<div class="yui-u">
+<div class="sidebar">
+<div style="margin-top:24px;clear:both;"></div>
+<div class="sidebar-glossary">
+<h4 class="sidebarh4">DID YOU KNOW?</h4><div class="glossaryhomebox" style="padding:10px;"><p>Michael J. Fox’s middle name is actually Andrew; when he entered acting there was already a Michael Fox and he didn’t care for his middle name so he adopted the middle initial J in homage to actor Michael J. Pollard.</p>
+</div>
+</div>
+<div id="side78"><div id="htgyr11">
+<script type="text/javascript" pagespeed_no_defer="">pagespeed.lazyLoadImages.overrideAttributeFunctions();</script><script type="text/javascript">tmntag.adTag('purch_Y_R_1_1');</script>
+</div>
+</div>	<div class="sidebar-glossary lazyloaddiv">
+<style>.sfp3 a em{font-style:italic;font-weight:bold}</style>
+<h4 class="sidebarh4">BEST OF HOW-TO GEEK</h4>
+<div class="sfpost">
+<div class="sfp2">
+<a href="http://www.howtogeek.com/169139/sandboxes-explained-how-theyre-already-protecting-you-and-how-to-sandbox-any-program/" class="title" rel="bookmark"><span><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAAoADwDASIAAhEBAxEB/8QAGgAAAgMBAQAAAAAAAAAAAAAABQYABAcCA//EADIQAAIBAwMCBAMHBQEAAAAAAAECAwQFEQASIQYxEyJBUWFxgQcUMkKhsfAVIzNSkcH/xAAYAQADAQEAAAAAAAAAAAAAAAADBAUCAf/EACARAAICAQUBAQEAAAAAAAAAAAECAAMhBBESMUEFFBP/2gAMAwEAAhEDEQA/ADtHY7rS2iWokulLcahXMRp3mCzAg4O1SFB5+JzxjOqTz1tFC01Z0vOTE2HMtUUXAwxGAuQSpJHPoTzg6f7XYv6MkjvNLUtM4keNhuklkyRglu+AWwQFxg5OiV0utur7JHDVIkasQ6yeCrNEduPOMkfPtx6+uoo0NAO5XeGFC9zGLl1LWyWOWogp7bHIKlcU5MhRE2sCQSxP+vcn19xodB1RXbNtRSwK59Yn5/bR3qvoq10jRSUd9ilrJjJ48e11DZYldp2kD4gnkdj7qtvs7b2o3qo0Qbts4UspOfUjt88abq+ZpTueHeZi1idg3kGdKVFytdwqKyWaWsqDKWiqHO9kBGCAGzjue2mrpy5X6+dUyL1W1vqrQu5KeOWkiQo/AVGYKD23cE8kaHR0EdPcKCGGepkLSDxXjj2lffbySwHJz66p3ea5nqlaG2wFMv4iLEdqttOVb2J7fXRR8+n+psAyRCfrsFYTwR96m6b6RhkFwuJoKqkEbotHbw6CI5XDMYyDkBcY7cnWNXOo6VhrplprZWPEZGKhpsbBuOF9yAMcnnTxca61TU6xXC1zUtRwZJChUlxjJ+uPpocyRvhoLtcY09F8aRsfXOtfg5DuLXWq5zNVrftEraSnFHW0AESttEpHitKT75PA7nvnkDXUXWdrrYZKd4o5pSgSSSI8g4ODj2HPbvkc6xi09TV9NCU8ZKylPBSXzDHwP8GjVsuNgnLpGslvnlHKq2AT6euCPhxrqNU2DgxhlsGRkR8W+0E9vpaeKjVpEbEkoB5GTyUz2AI4z7aDXiqtzXaSoWEGOTKiNWZNq47gg8sORyOc+mqqL91plemWWactiQsMbl5w2e38GqzyQVQeSRPAeNgrgAbmOO49x76crVfIpYzeyspWShhhZRPsLNCVf/EW4PB79hrp7nUFKeNfDUQSkwh1UlRzzj5n9R7a4r0oI6hahVWZlHlZNybD8QOD/wB17Wjpyuukv32tp2gpmO8r+FpB37flH8+OilUA3MGGc4E9Uau6jrFo1CYGQ1RInAyc847nngftoiKGzWzNHLieRD53EStz9e3y11XXuClongo1gp6eEEGReAAO+D/7rKr11/trmW2oJIAPxMcZOTk6n2axieNQ6jy6ZEHK49zN7Ffqu1zhZNz05OGQ/uNN1t6gt1wYDxPBYflbsdTU122tSN5mmxhsIzWq+3a1Mn3GtJjDAmKTzow+R7fTTTQdXWiu3LeKVqWZxt3qNyHjHfGR+upqaUSxlODHiisMiNPRlltVRJNcfGjqdhDL5h4aDHc44JznXv1bfIhC9PTuVp1U7ye7/P2Hw1NTS+svsawITiH0tKJWWAzMI+0PqCWvRqC3TbaVD/c8349IgIAw7MD7ZHGpqaoVqFUASNe5dyTP/9k="></span></a>
+</div>
+<div class="sfp3">
+<a href="http://www.howtogeek.com/169139/sandboxes-explained-how-theyre-already-protecting-you-and-how-to-sandbox-any-program/" class="title" rel="bookmark">Sandboxes Explained: How They’re Already Protecting You and How to Sandbox Any Program</a>
+</div>
+<div style="clear:both;"></div>
+</div>
+<div style="max-width:330px;max-height:80px;overflow:hidden">
+<script async="" type="text/javascript" src="http://cdn.bttrack.com/js/infeed/1.1/5ffc6f78-a277-43dd-8b7b-5fdfa1483100/34320547/infeed.min.js" class="bt-script"></script><img src="http://bttrack.com/Pixel/Check/34320547?1482986217" height="1" width="1" border="0" style="display: none !important;">
+</div>
+<div class="sfpost">
+<div class="sfp2">
+<a href="http://www.howtogeek.com/132624/htg-explains-whats-a-linux-distro-and-how-are-they-different/" class="title" rel="bookmark"><span><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAAoADwDASIAAhEBAxEB/8QAGwAAAQUBAQAAAAAAAAAAAAAACAADBAUGBwL/xAA1EAACAQMDAwIFAgILAAAAAAABAgMEBREABhIhMUEHExQiUWFxMpEIFRYmQkNidIGhsbKz/8QAGAEBAQEBAQAAAAAAAAAAAAAABAUDAgb/xAArEQABAwMCBAQHAAAAAAAAAAABAAIDBBExQVESIYHwBRMywRQjM2FxkaH/2gAMAwEAAhEDEQA/AO5Q+n+ykkSN7Zb1iT5QPieqrknGOI858/XTO/dhbKo/TrcFfbrJTRyQWmplgkjkYhSsLFSPmx0wNaOk3NYhMz1N4iRM5Rmmwp+36jnUD1C3DYblsLcFuoLvRT1dVbKiCCJZhl3aJlVR18kjSmxT3BLTbqjOkhIIBF+iDvYFtutbuthY6akmqRRyNJ8TKUHEMgwDg9Tnjgjsx7HBFTtZIBW0bXGnM0CSD34efDmgbLLnpjyPHfxq+Nlum1Lor7gtFziknpH+FjpqiRGdlkj5EmEk4Ck98D86rdrlFFLVTlGCsHaOUlg3zZIPnr2OdPY0GWQt2G+2hxrpg5Uuqlk+EhY/AJzb+6+2yY9Tf5OrvJaKI0NK3DhF7/unOeuTyJ+nT7aykLLJ1U5AJB/Ot76jXGjrblS3RkpKBfiacyrTU4mxiQcnEZHFjjrxPQ4++sbcJUnvFfNHULUo9VIVlWlFOHGeje2AAmR4A0N4c3hDttTc/vVLpnNc17m29RwLDTTRNcdFx/D3P7fpJZk+hn/9n0JQHXRHek1tNV6b2WUIT8kw6Rq39/J9YH/5/wBPrjLhLj9SICgsNmEjGa10wCt8hZBg+MY5tn/bXq+Wm0LbZGp7bRJKrIVaOFVZTyHUEYI/OR+dOUNRRMzpIaOSPkS0jkDH0H6AD+/nzqs9Sqqgg9ONzTUdTTxVCWiqaJ4ZArqwiYqVIOQQQCMfTXAe9xtcrstY3nZct9b7rX27dthiortT0bT2+tjkeaJqjOGgIUKJSRkgfT8HXALbG706u7I7ksWZP0seR6j7as/Taoqdw7slS/W6u3ZFDa52EM7GoanBePlKodxggZ657kai7ciIslKcDPDt0x3+2qlLS+RK7mCbDvPso/idV59OxoFrE99lVl8kaiWjrVrGoGhrqeQVSrkwESKfcA65I79vGs/dql6y/XKpe4Pci9XJiqdOBmGcBuOBjIx0wPxrV7n4w0tNPJWCjRK6nLT8OXsj3F+fHnHfH21krpOlRfblNFXCvjasl9upCcBMvLCtxycZGOmdZ1n1ei68LHyD+VN2xGk25bZFIiSI9ZErK4yrAuAQR5GjLuVDRWqtkoKS1CngiPyRUNIoiQHr0AGAcnJ+5z50G20j/Wu0/wCeh/7jRobvgeXcFSy1VZEPlGInIH6R/hPXU+a/KyqxDKBxLqFt70C0cS07nkyCaXiWxgMV58SR+NRoOIIPEftpaWvQRgDCkP5hdG9DpE/prOWva2dhbZfbnZI2Vn9yLip5nAGcEkdcKdQ7DfrHDaaeCa6UscqLh0dwCDnS0tCkkMdS8j7LWSmZLTMvuU1fr3ZauGkipL/RwSi4U595hzWECRSXK/2gvcj7ayVymEl6uLivjuANXJiqjTgsw5dHC+Ae+NLS0aV5kfxFIpYhDFwNPK6922tehuVNXRKrPTzLKobsSpBAP7aLfZu7G3jtqk3HdI6Kmq6vn7kUeeK8XZBjkGPZQe+lpaDWyGNgcN1vxFuF/9k="></span></a>
+</div>
+<div class="sfp3">
+<a href="http://www.howtogeek.com/132624/htg-explains-whats-a-linux-distro-and-how-are-they-different/" class="title" rel="bookmark">What Is a Linux Distro, and How Are They Different from One Another?</a>
+</div>
+<div style="clear:both;"></div>
+</div>
+<div class="sfpost">
+<div class="sfp2">
+<a href="http://www.howtogeek.com/258695/how-to-install-windows-media-center-on-windows-10/" class="title" rel="bookmark"><span><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAAoADwDASIAAhEBAxEB/8QAGwAAAQUBAQAAAAAAAAAAAAAAAAQFBgcIAwL/xAA5EAABAwMBBAgDBAsAAAAAAAABAgMEAAURBhITITEHFCJBUWGT0hdVcRbR4eIVJDJSY3SCg6HBwv/EABkBAAIDAQAAAAAAAAAAAAAAAAQHAgMGBf/EACIRAAICAgICAwEBAAAAAAAAAAECAAMEEQUhEjFBcYFRYf/aAAwDAQACEQMRAD8AzJ8Q9Y/O3PRb9tHxD1j87c9Fv20xXKOyxICI6nFI2c5XjJPHwqyuhvSEGetmbcLdHnLkE7lMpeyygA4yR3n68KKyeTfHTzdzr9gdfH02OEVBs/UiXxD1l86c9Fv20fEPWXztz0W/bVn9L/R7GZs4uEayQba/sbxpUIkJeRgnijkBgcx4iqNjtBx5KFEgHPLnyqGFyzZi+VVhP7INhY6kgoOv8EkY6Q9Zd17c9Fv20pt2utWT5zMGXeHHY8hQadQW0AKQeBHBOaYm7fEW1tmQtPHABxmnXSFuiDVFrK3FrHWm8pBHHtDhXTosva1QWPv+wa+nHSpmCDoH4lhRLWw5gYKf80uTptlY2soP1qwhZrOVpLbTqAUg9opV3fQU7fozT7UdgKh71SkZUorUnJ2iOQPgBTDaqmlAXXcWI5N7rCqNqZcnwoz8kKZKlICcAq58zVv9B13tEVEaBcrwqzSohV1eQcBtaVHOFHHAjzxwqAW0hQbSuPHASACrcgn8ae46I6ckJb48/wBXH30vMvjVyqvAEqfgj2IyWyCD3LO6a9VacFsei2qRa5c11kstC3gKbQFcCtSxwJ8BknNZwNuQ04FFOcd1WI6GCSd21j+XH301XApQtSkR4ygfFkDu8KF4jgqeLqKISSe9mTszGucsZFFJi42TG2R5KNLtN9XF+ghtoJc6wjYJ4gHIxSaU3hR4V104pCNQ29bhIQmQgqIHEDIrtUKosXr5g+SSam+jNCsiepKClyN+wnOUK54HnS+RCu5ajrBj7K28jsH95Q8fKmtu+WsEBrfqGyB2sJ7vLNOn2ggrYYTv1J2EFOyQTjtE+HnW1y1d6x4DcVeIhTIY2DQmbIuo0NADqOf7v5aXN6sCcFMAgjkd9+WiisGtrRsvUs6K1YXVbTkIqPLJfz/zXN2+oeGDD2c/xfwooq5GJ9ylkA9RIstvnOCn+rP+q9w4jTcht7enKFA4oooupF2DqCW2vojcmMO6JSkYIpd9oWUdkkZoorQJl2Ko1M6+HU7dif/Z"></span></a>
+</div>
+<div class="sfp3">
+<a href="http://www.howtogeek.com/258695/how-to-install-windows-media-center-on-windows-10/" class="title" rel="bookmark">How to Install Windows Media Center on Windows 10</a>
+</div>
+<div style="clear:both;"></div>
+</div>
+<div style="max-width:330px;max-height:80px;overflow:hidden">
+<script async="" type="text/javascript" src="http://cdn.bttrack.com/js/infeed/1.1/5ffc6f78-a277-43dd-8b7b-5fdfa1483100/34320549/infeed.min.js" class="bt-script"></script><img src="http://bttrack.com/Pixel/Check/34320549?1482986217" height="1" width="1" border="0" style="display: none !important;">
+</div>
+<div class="sfpost">
+<div class="sfp2">
+<a href="http://www.howtogeek.com/242428/whats-the-best-way-to-back-up-my-computer/" class="title" rel="bookmark"><span><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAAoADwDASIAAhEBAxEB/8QAHAAAAgIDAQEAAAAAAAAAAAAAAAUGBwIECAED/8QAMhAAAQMDAgQEBAUFAAAAAAAAAQIDBAAFEQYhEjFBUQcTMoEUUmGRCEJicaEiIzSx8P/EABcBAQEBAQAAAAAAAAAAAAAAAAMEAgX/xAAhEQACAgIBBAMAAAAAAAAAAAABAgADESExBBITQRQiUf/aAAwDAQACEQMRAD8Aq/WWrYusbSLfcR8MtKgpLzaOIA/tmoa5oW4OMh6BLjyW1bp4gWyfYipfaYCYzKRJdElYPFkoAAO/L7nnTlpwHauCtnj0nE6LIG2ZUM3TF/i5LlsfUB1bHGP4pQ6260oocbW2odFDBq5LxqRqCFtQ2Fz5KQcttgkDAyRsCSQOYA264p7pmzaj1NbkSJ2i5EWMtOUrlFvy1D6FZFUre4GWEEoo9znvJ60Z5Yq8rr4f2d1uS/IgsQWmHA0p0FQK3OjbaUetf6enWoFA01ZL5Lls2yVJiFkAsh0BwuJzgqOCOHpyJ59aZb1IzMhO4ZEhYJ71kFkU61Rp1dhU2lydHeU56UJyF47kcse9JMUqkMMiZIxzLakT48RgvSHUoQNsk8z2A6n6V5pmLddbXJcGBKj2m3tf5El90JXw9cDOSf0j3I5VFrxapc534iLP4HPldGQB2T2+2T3pXMvOurPHVEbucqDFcwlXwYDSFDoD5YHflUNNSsNHcW5m44nWGkLV4YaMhoEZk3GekYXKUyFq9lOcKUDrhOBS3Wvihp2DHecuF6blrCSY9sgKG5ztxuc/tjAzgneuPbhPflsoU/KmvyB6y64VD+TWrEeDLyFgqOfWCP8AVUfDJ2xk7FSACJb2s/Ep9cViTb3lCY4xwFaEhtEJC/UxHT+U8+Jz1K+g56dm1NYbLpP4iG0ozXNltuepa++flH/b1XkdozHw9KX5bQOB9B2FXRbfw96lu+l49+tcy3z3/L8xy0rUWn0pPpAzsT14SR7nattSmApiCwjiU5LuEm6XB2bKdLjrm5PQDsPpWOKZ3y1tWiW5AcjvR57S+F5lYILWOhB3znf9sd6X8BNKAPUxv3JRZ9QW+XhHm+S6fyOHH2PI0/bcStJSQFJI3B5Giiud1Fa1t9ZXWxYbiK92aHISpEdtDbh3OE7Coc/anYzx+J/pSk8+h/aiin6axs9uYdqDGZkErlLQkYS0ByB5DtU/s+vdbWxLYZ1RPajsp9RwpaRjGyiCrsMZ6423NFFVt+SYT6I1AvxHfRC1XIQm9n+1b7usBJX8rMjAAUk5wHMZSTvkcobcIUqBOfgzGFsSWHFNutrGChQOCD70UUZ0cTY2J//Z"></span></a>
+</div>
+<div class="sfp3">
+<a href="http://www.howtogeek.com/242428/whats-the-best-way-to-back-up-my-computer/" class="title" rel="bookmark">What’s the Best Way to Back Up My Computer?</a>
+</div>
+<div style="clear:both;"></div>
+</div>
+<div class="sfpost">
+<div class="sfp2">
+<a href="http://www.howtogeek.com/225385/what%e2%80%99s-the-best-antivirus-for-windows-10-is-windows-defender-good-enough/" class="title" rel="bookmark"><span><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAAoADwDASIAAhEBAxEB/8QAGwAAAgIDAQAAAAAAAAAAAAAABAYABQECAwf/xAAzEAABAwMDAwIEAgsAAAAAAAABAgMRAAQSBQYhEzFRYYEUIkGRB3EWMjM0QkOCkqGx8P/EABsBAAMAAgMAAAAAAAAAAAAAAAABBQYHAgME/8QAKhEAAQIEBAQHAQAAAAAAAAAAAQACAwQREwUhUZESQlKBBhUWIjNBofD/2gAMAwEAAhEDEQA/AEdpY80U2pBiYpMVuWxZdU2t1YUhRSqEHuK3G7NNA/auH+g1uMY1Ig0MVu4WpnYLOOzEM7FP1s6wnvE0e3qNqymVFIry5zd9r/Atf9poG73Oh0QlxZ9q4RMfkAPkB7rp9MTcU+5hHZer3O/29JPUssesnsYBikPeW+9f3G6oanqdzcNg/I2pw4J/IdhSe9qaHVSpaj7UI5coUZyP2qFM4zLxDVrmjaqu4f4dMoKBh/UU67JJ80OXBNcS+knvXMuieBUx09BPON1cbJxRylX22b3QrXW7t7XrI3bCssEj6Knv/wB35EiZHPbmpqsL28XauWbbLv8AJvGuo2tIVKZHkGDVG5ytRnuZrdi66DbrYQ0sOCCVoCing8jweaxSJJxL74nCc9llnmgfJQpQ8NGVz+89T/fgoznUrhTVy2XduDqJTk58KjKSCmEnHgjGfcGiXtbdcJDh2w6nNCxFmE8JWFBPABAMAR4kUsOayVFM2lhwZ/dxyee/3rKNcdQ042GLPFapINunjtwPTifzmixF6SvLdZqEyp3FdFDjGO2ClwYk/ApA47EGPlMHgjkenehtb1J7VbEt3FzoCZWFFTFtg6TP1VEwJ8+3c1RXGtl5tSFWliMk4ym3AI4jg/Tiujm4XnAQu2sVSZOVskkn8zyaLEXpKLrNVlGmWy7joI1W2ktZhauEZTymf9GOfSoxpbTqCpWrac18xELWqTBieEnihNQ1P43DNi2awEDotBHHrHf3oQut+aLEXpKLrNUrlavJ+9YKleT96lSiqdFu2pvpr6inM+MMYj1mi3xpg0u3Uw/dG+KVddC0gISrMxj5GMEk/XiI5qVKVSnRaupsUi0KLh5eQHxPEFPaQn2/yKYfw/OxBvMI3k5qn6PlpYztky6Fx8pIBEiZ7elSpTqkqy6VoC9a1NVmp9vTjdLNgLhJU4GMlY5Yn9bHGee81UXBR13OkolvI4T4nipUoqii/9k="></span></a>
+</div>
+<div class="sfp3">
+<a href="http://www.howtogeek.com/225385/what%e2%80%99s-the-best-antivirus-for-windows-10-is-windows-defender-good-enough/" class="title" rel="bookmark">What’s the Best Antivirus for Windows 10? (Is Windows Defender Good Enough?)</a>
+</div>
+<div style="clear:both;"></div>
+</div>
+<div class="sfpost">
+<div class="sfp2">
+<a href="http://www.howtogeek.com/208143/use-airdrop-to-wirelessly-send-content-between-nearby-iphones-ipads-and-macs/" class="title" rel="bookmark"><span><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAAoADwDASIAAhEBAxEB/8QAGwAAAgMBAQEAAAAAAAAAAAAABgcABAUIAQL/xAA0EAABBAEDAgMFBQkAAAAAAAABAgMEBREABiESMQcTQRQiUWGRCCMygqEVJEJScYGisdH/xAAZAQACAwEAAAAAAAAAAAAAAAAFBgIEBwP/xAAnEQABBAEDAwQDAQAAAAAAAAABAgMEEQAFBjESE3EUISJBFVFhgf/aAAwDAQACEQMRAD8A6isYDSs+4PppVeMFU+uPTIasplbDdtWGJrkRQS55biugAEg495SedGtzvlIJTXUdhKPotxIaR/lz+mgHdm5HLujvqm9/ZtQRBL8R5UoBKXAfdypWACFdJGlCRpDoHqkt/FNXjF23kNfP2vCWH4F7ARhywiTrdfqqwnuvA/lKun9NE9HsjZdGoCq2zUQunsWYiEn6gaubXuEXe0Ku2ZHEyI28Pl1JB19reWFYxzqX5HtmmxlBpCl8nLUlmM2glpCEgD+EY0NyrQOSzEjNlax347a1JUjykffLCQr46xjNqayzZcW8nreyDkjv8tX4y5UkW2nLaHW46bcPjPHQefaE4I9ND1jaRY8ktqaXnGe2tW83HXuWzUZlSVqPfHpoV3TuCui2pac6OroB/wB6cNMiv9A67vBMzcZYPxIAwD8dvFu523as7Y2rVJl2EhjzFzXsqSCVKHShIwMjHcn1HGufZFbf7nfFtuq5dIUEvBDmSpxsr6VFpI4OACSOO2mBv/dUSdKr7eC4Y9jWuhxLrJKVFtQwsAn5c+vbHrq/bR3qaIzY0gajMvfvLK0EOyC2tI60KUQRj8SscgZ+IOIRIjaraQrqHnjzg2fqslQtwFN8eccn2VN0eXVTfD6wWvzaoe01anR0rehLVxwST7ijjvwFJHppzTHWUArUQAO51wVTbwlbX3VUW9PXFBqn3PvFKy9JjrOCys9jhHuj0BAIxp52Xi41alyHHsITUaQkLakLdCfcIyP6HB0Dn7deenDt0E52hai2yx1v3eGviduFh9DUKBLSXgsFXSe2gjdyX3ojLheJdRggg86Xu5txbdq1gNbiiPPuHK1pkBWNYrXiNRtPOtmz8/7s8gqVj1yNPECDGgtJb7gv74xXmazLmOlTbKqHHscdVDJixYBnP8upTye50s9xPzra4kTR1hKlYSPgBodh+KlOyytqMixmNrVhZRHUdWnvFGmKh7Nta7UgDGfJ7nRhidpsUkl1N+cX34mtTfZLCqH8OC2+WHEW64Da0vSIp8t5SVe71A8gH5f90feGk2FZ7Ts6x8oZVUvZSFAEhpX4Dn14HT+X56mprKtvy3Uv0Dzzmu6xEaXGBUOOMpwadVnJffq6ZU1htoqbVn8S88cdgMep47d9YVLtxMLezNfd1tPPbnNuS1lQ6iz8UpBPxKfqr+XU1NE9yqJhOG+BYyG1WkrmI6uLA/w3hpKqtrVrS5KqiuaZaHUshhOcD+2lTu7cu3LW0df9iEdIISlLLGMADA1NTWe7da9R1LcUSfOPe7ymMpttpIAr9ZkvbqTBp1QKBUhhbj3WVqQARxjWrDvLL2ZCVvKdKRgrUrk/TU1NHpcdtKQKwNoLq1OKN/Wf/9k="></span></a>
+</div>
+<div class="sfp3">
+<a href="http://www.howtogeek.com/208143/use-airdrop-to-wirelessly-send-content-between-nearby-iphones-ipads-and-macs/" class="title" rel="bookmark">AirDrop 101: Easily Send Content Between Nearby iPhones, iPads, and Macs</a>
+</div>
+<div style="clear:both;"></div>
+</div>
+<div class="sfpost">
+<div class="sfp2">
+<a href="http://www.howtogeek.com/215349/how-to-remove-an-efi-system-partition-or-gpt-protective-partition-from-a-drive-in-windows/" class="title" rel="bookmark"><span><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAAoADwDASIAAhEBAxEB/8QAHAAAAgIDAQEAAAAAAAAAAAAAAAYEBwIFCAED/8QAPxAAAQMDAQUCBw0JAAAAAAAAAQIDBAAFEQYHEhMhMSJRFEFTVHGUoQgVFhdWZIGRlrHR09QjMjM0Q1JhcoL/xAAbAQACAgMBAAAAAAAAAAAAAAABBAMFAAIHBv/EAC4RAAECAwQGCwAAAAAAAAAAAAEAAgMEERIhMZEFBlJysdITIjI0UWGBksHR4f/aAAwDAQACEQMRAD8AujV+1jSGkr69Y9Q6vdhXBlKVONcCQ5gKSFDtIZI6EeOs7PtR07eYHh9nvV7uUXiKaLsS0T3khYAJB3Y5wcKHXvptkuTEzZqY0Jt7LowtTAcweG317aeVbFpSTHdIZ4PPmFo3QTgc8Z6UxagWR1TXeHCz8oUKTPh7C8tqr7P3L9NWTeu4a3EoS/qkFRAG9YLiB9JMbApqgutMBQU9ESg/2O57sdTUsyWABl5sf9itbULZOY+ll6SPh7C8tqr7P3L9NUa77TbDZ4Hh92u9+gRM4L0mzT20Ak4AJVHGCf8APWrECsjIGR6a1uoG3Ho8dttD6lF4EBlRSo4So8iFA+0UQ6DW9pzHKsvVZfH5s2+Xj3qcz8ij4/Nm3y8e9TmfkU/2+0zW5KlPJuygtASvDrvQYUN3eeKQeQBOOfPxE0zMy0qbBTZpuOnbbQD7VZqS3K7DvcORCjvFLFruEqXETMk2G8wXnzvOMl1vKCMJ54XjoB0rawHFORnlFiUyd/kl8grPIcxzPL01zYdt+th/Vherirj2LanuerdGyrpdlNl9M1bILadwboQgjp/sedICM17qBVMjpuWnYvRQq18wmtptxbhQVrQnGe0wjBNfbwVXnCemP4SPwqGh1JO6H0FXIgC4E57/ABVs4iVIZAWFA56Fe/7TUiuFiy262vK5RcTjG6UpH3VjOXh2IQtSTxuqev7iqlUkbab/AD9MaKN5thbEpmS2Eb6d4drIPL0GgTQVUUaK2DDdEdgBXJOnGX5zJ+o0cZfnMn6jXL7e3DXTiglKoRJ+bimS3bQdpUyKl9Ii4PzYVEIzTgqE60SWFHZfqo9Rro73NDLjmzqWtDy0D3xc5Jz5Nuiil5ftrzurHfvQqw247yl8MXGXvEjGWCAPp3cVPahykICVTFrPeSR91FFPLoq88Fm+EfzH7Hc676shWe7uxSB7oOBKe2dONIcU6pctkBOSc9qiitX3tKQ0oaSUXdPBVfo/RLURCJVySFOdQ33en8KdOK22AhAASBgAUUUqBRc0awMFy//Z"></span></a>
+</div>
+<div class="sfp3">
+<a href="http://www.howtogeek.com/215349/how-to-remove-an-efi-system-partition-or-gpt-protective-partition-from-a-drive-in-windows/" class="title" rel="bookmark">How to Remove an EFI System Partition or GPT Protective Partition From a Drive in Windows</a>
+</div>
+<div style="clear:both;"></div>
+</div>
+<div class="sfpost">
+<div class="sfp2">
+<a href="http://www.howtogeek.com/168841/how-to-send-and-receive-faxes-online-without-a-fax-machine-or-phone-line/" class="title" rel="bookmark"><span><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAAoADwDASIAAhEBAxEB/8QAGwAAAgIDAQAAAAAAAAAAAAAABQYABwMECAL/xAAxEAABAwMCBAQFAwUAAAAAAAABAgMEAAUREiEGBxMxQWGBkRQiI1FxMpKhQrGy0fD/xAAZAQACAwEAAAAAAAAAAAAAAAAEBQIDBgH/xAAkEQACAgICAQMFAAAAAAAAAAABAgADBBESIRMFFCIxM0Fhcf/aAAwDAQACEQMRAD8A6OvXKbg245XHiP21w/1RHSB+1WUj0AqtePeT4sltfu4u0OVGaxkPsltwZOAEkZyd/KrGt3FyykBSgfzShzT4kVfH4tnbV9Bg9Z7B2UsjYeg/y8qjkUeIbYS0KRKqVaYEOIHlOyWipQSnQoqKieyQDmssKTLeTEEC7MywE62GXchWN1Y0+h28jXq/NuXSc3aIaY8lKMLdaXoKBpUkr1hQycJPZG4JGcChEnomNKlSbfJghTY+FSMx221dJQWAFkatKEhIIODqOMbmgdbk4xSbvcFXQzrnbDhR+YsJBGwwO3p3rBb7ja5dyWqS+iMNJILn2z+nz2o1wWxAtsZlc/rTYzyS+W2k9HQpeDgIztgeGe/jW5xOxwy9bUvxoxkydeFsOslOlO+4UAR9vv3oOy/jYK9Hv8j6SXDY3Kg5oG2v2zTlH1nUaS2NISoKCvXGP5FD+afNSdZOLXLVafh1tR2kJcUsZ+puSB+BgfkGgHOK6MquybfBbEZmPlASF6tJ/UtWfYelIDrj7rzj7zDkl51RcdWdzqO+D54x7059sGC8oF5NE6naabgGYxe6moJGdj38qCl9bcaRNWnqvFKnMZxqOMgVXFi5ocOTV/CzHV2+R2U3JQUEGm+4xbXxVYFxF3JKG1KC0qbAcSvHhgf774qzOyjkkbGhCA0FSXI7aJc2XDWmQ64VtLWhbSVNgtqXhlxR3Us6cbaseGRktaor5uUaBFmh6JFIeHWC0AgOKU5ob06FgqUADn5R28DQWXab/FeckQ5c5yLFjpbhJaUhwNlKQAVtncnvuAc/2YeWUaQ+GF3SIGpi1KCz827QVkAIUToBJ/SMDxxQDsFUkmdGz0Bsx0juWgMtiW3JYcUT1HtHUbUM+AGT9hsKUeLr03ZY86Uy11WG0qLDg+TUTsnKFbjenPipES322SY7hC+mNCE/LlSsgHSNjvnOQdgaoPm7xDIdZZtZUkafqK0+JOyc/gZPtVODjiyzkCSJCzKJUoV0w6lU3lx2ZcXpD2pwajqPckDc+qlfxRqzWtkQErlNuKdcJWrQe2fD/vDFakCOHHUpUSE91H7JG5PtRpu4x22W+p8hUnUEgZwMkAewxWjRAx2Yudio1HC8xrLfm8PMxJycbEgKI9e4ofbbHPtCNHDt5lQGs5EZwB9j9qtx6GpUrE+R6+gY8ChuzDDfEnGNuZUZthZuaUg4dt72FH8tr39iasbkZNlX6K9xBcrVJtxQsxkMPpIUSMFSsHcDsPepUrt1zPSQYZ6fUvmBgnibjaIzzMv8aQ4y7FgtNtpZ1AHIRqUR55WoVzFzQvr134hdWVacLK1BJ7E9h6DAqVK0eAirSCP1E+b99v6YM4XmyzcAwqU8W1JOUFZwaZ332ELAecCVY2HlUqUzpPxgNg+U/9k="></span></a>
+</div>
+<div class="sfp3">
+<a href="http://www.howtogeek.com/168841/how-to-send-and-receive-faxes-online-without-a-fax-machine-or-phone-line/" class="title" rel="bookmark">How to Send and Receive Faxes Online Without a Fax Machine or Phone Line</a>
+</div>
+<div style="clear:both;"></div>
+</div>
+<div class="sfpost">
+<div class="sfp2">
+<a href="http://www.howtogeek.com/125923/7-ways-to-free-up-hard-disk-space-on-windows/" class="title" rel="bookmark"><span><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAAoADwDASIAAhEBAxEB/8QAGwAAAwEAAwEAAAAAAAAAAAAAAAYHBQECBAj/xAAuEAABAwMDAwMDAwUAAAAAAAABAgMEAAURBhIhBzFRE0FhInGBFDKRFUKCobH/xAAZAQACAwEAAAAAAAAAAAAAAAAABAIDBQb/xAAeEQACAgMBAQEBAAAAAAAAAAABAgARAyExEgQiQf/aAAwDAQACEQMRAD8ASmtYdUGmJLki/MtqjrKFJUw2oHHggcj5pGsfV3W9qu93kuXBr9RMfSuQlbIKcpSEgpHtwB28U26w6laS1BbILypMuNcUtpMhl1lSUlZAC0gjO4ZAOffB80gS7Rb7zqZhuLIEeJITmTJkoVsbV5ThIVz4xSON8pYhppPjweB57GK39UtTagkO25bsqVOlHbFQyMhSvb6e4Hkj802wG75CSIs1EKVIz3Q+ELUraFFITjGRkc5xjHPeqN0o6N2u2wwIF1jJdcRslOsFtUhxWP2pLiwEgZx9OfuTTnd9Ewo8lcCMm3KvKEt+gzKlpXLWf3ZCU7Ep4B7lQq1r7F7UGpCLTd7fd/UbZSpD6EgusPI2uJB7HHuD5GRXhvOmIMwKcjoEd7ykfSfuKWuuETWNj18qU/ZX7UuMn0kPshK08IztKkcHOR37fiqToPUiJWk7cuXF0o/KRGQJK5D7wdC+AfUSMBJyft79qjkqtiWYXYH8mSiXDdhSFMvoIWk/g13bUkJHFN/Udt16/es4xBYCmk7UQystDHjfz8+OaVvQ+1IsQDN3FbKDHnpf09iL07Gu8xKXZctHqI3chtB7AfJHOfmmZ7p6+8pv0ZziEpc3FoIAQseDtwo8cZ3Um9FNfsStOs2yU4EyoI9PBPKkf2kfjj8VTBq5lDf0rArWIucwLHI12m4XKw2owoFltUGEMkpYU6ygc+4Qsbv8txNeeRfFQ5BaYmvRFvL3FERCWWSvB7gEc4zyr+amOu9YPybFJaYdOCBnB9s1laI10pEMyruESCyNja1qCVJ8nJ+lXHH1efzVTMqmpYqFtyr3CalTymZG9clzcVAqDhOBlWSMjI9+SalfUdiDJkqbnwmlvpAwpaAVAe2D3x9qo9h1DbdWX6FaIkVhiS/MAZXlsFpCkqBQChXuDycE8HHeudSaXjy7xcY7yEL/AKdIVG3pHCiME4z8mpKwMCvmRdi3T7xIiBy4oaZjRww2lTfGM91Edz8/ArCdVsdW24SlaFFJHyKqc+3swHihtIFZEy12+W960iMhbmMFXIzSuXGGOo/830HGKM+b470y2vM3KI7sKicFJ9x3BqoR9WWe5yGWbXOlMqLDfqIm7UlTu0b9pHG3dnGecUUU7/LmbxqjzpiM1I+iWkOBQwQrkEVtSumVvnwvStk9UEKUFFCkb0/buD/2iiolQw3D2VOozdG9ENaO1uxqO7T0Tf0xW400w3jKykhJJPYDJ/1TfcpLTbUlxAwp95byz3JUtRUT/JoooCheQLljuTG9Pl2ao+wNZ5VRRS57Ghyf/9k="></span></a>
+</div>
+<div class="sfp3">
+<a href="http://www.howtogeek.com/125923/7-ways-to-free-up-hard-disk-space-on-windows/" class="title" rel="bookmark">7 Ways To Free Up Hard Disk Space On Windows</a>
+</div>
+<div style="clear:both;"></div>
+</div>
+</div>
+<div style="clear:both;"></div>	<div style="width:300px;min-height:20px;margin-top:30px;">
+<div style="text-align:center;margin-left:auto;margin-right:auto;">
+<div id="htgys01">
+<script type="text/javascript">tmntag.adTag('purch_Y_S_0_1');</script>
+</div>
+<div style="padding-top:10px;"></div>
+</div>
+<div id="sidebar-float-widget" style="top: 0px; position: relative;">
+<div class="sidebar-float-widget-internal">
+<div class="adSystem_ads">
+<div class="html"><div style="margin-bottom:0px"></div>
+<div id="___page_0" style="text-indent: 0px; margin: 0px; padding: 0px; background: transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 320px; height: 106px;"><iframe frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position: static; top: 0px; width: 320px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 106px;" tabindex="0" vspace="0" width="100%" id="I1_1483041648983" name="I1_1483041648983" src="./How To Enlarge a Virtual Machine’s Disk in VirtualBox or VMware_files/page.html" data-gapiattached="true" title="+Badge"></iframe></div>
+<div style="margin-top:8px;">
+<iframe id="twitter-widget-1" scrolling="no" frameborder="0" allowtransparency="true" class="twitter-follow-button twitter-follow-button-rendered" title="Twitter Follow Button" src="./How To Enlarge a Virtual Machine’s Disk in VirtualBox or VMware_files/follow_button.3748f7cda49448f6c6f7854238570ba0.en(1).html" style="position: static; visibility: visible; width: 258px; height: 28px;" data-screen-name="howtogeek"></iframe>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','twitter-wjs');</script>
+</div>
+<div id="fb-root"></div>
+<script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=391129387654171&version=v2.0";fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));</script>
+<div style="margin-bottom:10px"></div>
+<div class="fb-like fb_iframe_widget" data-href="https://www.facebook.com/howtogeek" data-width="300" data-layout="standard" data-action="like" data-show-faces="true" data-share="true" fb-xfbml-state="rendered" fb-iframe-plugin-query="action=like&amp;app_id=&amp;container_width=290&amp;href=https%3A%2F%2Fwww.facebook.com%2Fhowtogeek&amp;layout=standard&amp;locale=en_US&amp;sdk=joey&amp;share=true&amp;show_faces=true&amp;width=300"><span style="vertical-align: bottom; width: 300px; height: 31px;"><iframe name="f136a8f57a1c8" width="300px" height="1000px" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" title="fb:like Facebook Social Plugin" src="./How To Enlarge a Virtual Machine’s Disk in VirtualBox or VMware_files/like(1).html" style="border: none; visibility: visible; width: 300px; height: 31px;" class=""></iframe></span></div>
+<div style="margin-bottom:15px"></div></div>
+<div style="clear:both"></div>
+</div>
+<div style="clear:both;margin-bottom:20px;"></div>
+<div style="clear:both;"></div>
+<div id="htgyr01">
+<script type="text/javascript">tmntag.adTag('purch_Y_R_0_1');</script>
+</div>
+<div style="clear:both;"></div>
+</div>
+<div style="clear:both;"></div>
+</div>
+<div style="clear:both;"></div>
+</div>
+</div>
+</div>
+</div>
+<script type="text/javascript">var cnta2="";</script>
+<div class="yui-g" id="sb2">
+<div id="sb3">
+<div id="ns_ad8">
+<div id="sb4">
+<div style="padding:20px;padding-top:0px;">
+<h3 style="text-align: left;
+    font-size: 30px;
+    color: #234671;
+    font-family: bebas_neueregular;
+    text-transform: uppercase;
+    -webkit-font-smoothing: antialiased;
+    font-weight: normal;">More Articles You Might Like</h3>
+<script async="" src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- htg-below-article-content -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9173525300015284" data-ad-slot="8688851009" data-ad-format="autorelaxed"></ins>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+</div>
+<div id="htgyl01">
+<script type="text/javascript">tmntag.adTag('purch_Y_L_0_1');</script>
+</div>
+</div>
+<div style="clear:both;"></div>
+</div>
+</div>
+</div>
+<div class="yui-g" style=""></div>
+</div>
+<div class="footer" id="ft">
+<div style="width:18%;" class="ftdiv">
+<div class="ftsection" style="">ABOUT</div>
+<ul class="bottomul">
+<li><a href="http://www.howtogeek.com/about/" rel="nofollow">About Us</a></li>
+<li><a href="http://www.howtogeek.com/contact/" rel="nofollow">Contact Us</a></li>
+<li><a href="https://discuss.howtogeek.com/">Discussion Forum</a></li>
+<li><a href="http://purch.com/" rel="nofollow">Advertising</a></li>
+<li><a href="http://www.howtogeek.com/privacy-policy/" rel="nofollow">Privacy Policy</a></li>
+</ul>
+</div>
+<div style="width: 45%;" class="ftdiv">
+<div class="ftsection" style="color:#FF9854">GET ARTICLES BY EMAIL</div>
+<p id="ftemp">Enter your email address to get our daily newsletter.</p>
+<p>
+</p><form action="http://www.howtogeek.com/em/subscribe" method="post">
+<input type="hidden" name="list" value="weekday">
+<input type="hidden" name="tr" value="footer">
+<input type="text" id="fromaddress2" name="emailaddress" style="z-index:-9;left:-1500;top:-1500;height:1px;width:1px;position:absolute;">
+<input type="text" name="email" id="ftemtxt" style="color:#BBB" value="Enter Your Email Here">
+<input type="submit" id="ftemsub" value="Get Articles by Email" style="background:#55A8DF;">
+</form>
+<p></p>
+<div style="clear:both;"></div>
+</div>
+<div style="width:280px;float:left;">
+<div class="ftsection">FOLLOW US</div>
+<ul class="ftsub" style="float: left;">
+<li class="icon-twitter"><a href="https://twitter.com/intent/user?original_referer=http://www.howtogeek.com&amp;region=following&amp;screen_name=howtogeek&amp;tw_p=followbutton&amp;variant=2.0">Twitter</a></li>
+<li class="icon-facebook"><a href="http://facebook.com/howtogeek" rel="nofollow">Facebook</a></li>
+</ul>
+<ul class="ftsub" style="float: left;margin-left: 20px;">
+<li class="icon-google-plus"><a href="http://plus.google.com/+howtogeek">Google+</a></li>
+<li class="icon-feed"><a href="http://feeds.howtogeek.com/howtogeek">RSS Feed</a></li>
+</ul>
+<div style="clear:both"></div>
+</div>
+<div style="clear:both"></div>
+<div style="font-style:italic;font-size:11px;text-align:center;">Disclaimer: Most of the pages on the internet include affiliate links, including some on this site.</div>
+<br>
+<div class="copyright" style="font-size: 11px;">Copyright © 2006-2016 How-To Geek, LLC&nbsp; All Rights Reserved</div>
+</div>
+</div><script id="pocket-btn-js" src="./How To Enlarge a Virtual Machine’s Disk in VirtualBox or VMware_files/btn.js.download"></script><iframe name="oauth2relay909633100" id="oauth2relay909633100" src="./How To Enlarge a Virtual Machine’s Disk in VirtualBox or VMware_files/postmessageRelay.html" tabindex="-1" aria-hidden="true" style="width: 1px; height: 1px; position: absolute; top: -100px;"></iframe>
+<style>#subscribeoverlay{background:url(/public/images/xemailoverlay4.jpg.pagespeed.gp+jp+jw+pj+js+rj+rp+rw+ri+cp+md.ic.bdAMUqnBuz.jpg) no-repeat}#emailoverlaylist{color:#222}#emailoverlayformbutton{background:#6fc6ff}#emailoverlayformbutton:hover{background:#29a7fa}#emfh2{color:#000;top:100px}</style>
+<div class="overlay-bg">
+<div id="subscribeoverlay">
+<a href="http://www.howtogeek.com/124622/how-to-enlarge-a-virtual-machines-disk-in-virtualbox-or-vmware/#" id="ovclose"></a>
+<h2 id="emfh2"></h2>
+<div id="emftag"></div>
+<ul id="emailoverlaylist">
+<li>Get exclusive articles before everybody else.</li>
+<li>Get downloadable ebooks for free!</li>
+<li>Get geeky trivia, fun facts, and much more.</li>
+</ul>
+<form id="emailoverlayform" method="POST" action="http://www.howtogeek.com/em/subscribe">
+<p>
+<input type="hidden" name="list" value="weekday">
+<input type="hidden" name="tr" value="overlay1">
+</p><p id="emoflbl" style="
+            position: absolute;
+            left: 20px;
+            top: 240px;font-weight:bold;font-size:120%;
+            color: #000;
+        ">Enter Your Email Here to Get Access for Free:</p>
+<input type="text" style="color:#BBB;" id="overlayfrom" name="email" value="Enter Your Email Here">
+<input id="emailoverlayformbutton" type="submit" value="Get Free Content Now" style="">
+<p></p>
+</form>
+<div id="overlayformsuccess">Go check your email!</div>
+<img id="overlayimage" style="position:absolute;left:-9000px;top:-9000px;" src="./How To Enlarge a Virtual Machine’s Disk in VirtualBox or VMware_files/xemailoverlay4.jpg.pagespeed.gp+jp+jw+pj+js+rj+rp+rw+ri+cp+md.ic.bdAMUqnBuz.jpg">
+</div>
+</div>
+<script type="text/javascript" pagespeed_no_defer="">pagespeed.lazyLoadImages.overrideAttributeFunctions();</script><script type="text/javascript">$('.sfp2 a, .sfp3 a').on('click',function(){ga('send','event','nav','click','sidebar-bestof');});$('.sidebar .triviahomebox, .sidebar .triviahomebox a').on('click',function(){ga('send','event','nav','click','sidebar-trivia');});$('.geekthoughtul li a').on('click',function(){ga('send','event','nav','click','sidebar-thoughts');});$('.relateditemwrap a').on('click',function(){ga('send','event','nav','click','article-relatedbox');});$('.pf2 a, .pf3 a').on('click',function(){ga('send','event','nav','click','article-bestof');});</script>
+<script type="text/javascript">tmntag.adTag('out-of-page');</script>
+<script type="text/javascript">tmntag.adTag('1x1');</script>
+<!-- Begin comScore Tag -->
+<script>var _comscore=_comscore||[];_comscore.push({c1:"2",c2:"6035753"});(function(){var s=document.createElement("script"),el=document.getElementsByTagName("script")[0];s.async=true;s.src=(document.location.protocol=="https:"?"https://sb":"http://b")+".scorecardresearch.com/beacon.js";el.parentNode.insertBefore(s,el);})();</script>
+<noscript>
+&lt;img src="http://b.scorecardresearch.com/p?c1=2&amp;c2=6035753&amp;cv=2.0&amp;cj=1"/&gt;
+</noscript>
+<!-- End comScore Tag -->
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-1113647-1','howtogeek.com');ga('send','pageview');</script>
+<!-- Quantcast Tag -->
+<script type="text/javascript">var _qevents=_qevents||[];(function(){var elem=document.createElement('script');elem.src=(document.location.protocol=="https:"?"https://secure":"http://edge")+".quantserve.com/quant.js";elem.async=true;elem.type="text/javascript";var scpt=document.getElementsByTagName('script')[0];scpt.parentNode.insertBefore(elem,scpt);})();_qevents.push({qacct:"p-e1gWzoEHleH1I"});</script>
+<noscript>
+&lt;div style="display:none;"&gt;
+&lt;img src="//pixel.quantserve.com/pixel/p-e1gWzoEHleH1I.gif" height="1" width="1" alt="Quantcast"/&gt;
+&lt;/div&gt;
+</noscript>
+<!-- End Quantcast tag -->
+<script type="text/javascript" src="http://www.howtogeek.com/public/js/ads.js"></script>
+<script type="text/javascript">window._taboola=window._taboola||[];_taboola.push({flush:true});</script>
+
+
+<iframe id="rufous-sandbox" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" style="position: absolute; visibility: hidden; display: none; width: 0px; height: 0px; padding: 0px; border: none;" title="Twitter analytics iframe" src="./How To Enlarge a Virtual Machine’s Disk in VirtualBox or VMware_files/saved_resource.html"></iframe></body></html>

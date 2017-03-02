@@ -1,0 +1,20 @@
+ wget http://downloads3.ioncube.com/loader_downloads/ioncube_loaders_lin_x                                                                                                             86-64.tar.gz
+ 1895  tar -zxvf ioncube_loaders_lin_x86-64.tar.gz -C /usr/local/src/
+ 1896  ls -la
+ 1897  rm ioncube_loaders_lin_x86-64.tar.gz
+ 1898  rm ioncube_loaders_lin_x86-64.1.tar.gz
+ 1899  rm ioncube_loaders_lin_x86-64.tar.gz.1
+ 1900  php –v
+ 1901  nano /etc/php5/cli/php.ini
+ 1902  service php5-fpm restart
+ 1903  df -h
+ 1904  php -i | grep extension_dir
+ 1905  php -i | grep 'ioncube'
+ 1906  php -i | grep 'ion'
+ 1907  php -i | grep 'cube'
+ 1908  ls -la
+ 1909  mkdir ioncube
+ 1910  cd ioncube
+ 1911  wget http://www.ioncube.com/loader-wizard/loader-wizard.tgz
+ 1912  ls -la
+ 1913  tar -xzf loader-wizard.tgz
